@@ -13,11 +13,10 @@ mot de passe
 
 <?php
 
-$sql = '
-INSERT INTO `utilisateur`(`nom`, `prenom`, `mot de passe`) VALUES (lastname,name,password)';
+$sql = 'INSERT INTO `utilisateur`(`nom`, `prenom`, `mot de passe`) VALUES (`lastname`, `name`,`password)';
 foreach ($connexion->query($sql)as $row)
 {
-    
+
 }
 
 
