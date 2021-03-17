@@ -124,6 +124,56 @@ if(isset ( $erreur))
 
 
 
+
+<?php
+include'connexion.php';
+
+if(isset($_POST['pseudo']))
+{       
+
+    if (!empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mdp']))
+    {
+        $pseudo = htmlspecialchars($_POST['pseudo']);
+        $mail = htmlspecialchars($_POST['mail']);
+        $mdp = password_hash($_POST['mdp']);;
+        var_dump($pseudo);
+        var_dump($mail);
+        var_dump($mdp);
+
+    
+        $pseudolenght = strlen($pseudo);
+        if($pseudolenght >5 ) 
+        {
+           
+            if(filter_var($mail, FILTER_VALIDATE_EMAIL))
+                
+                {
+                    $insertmbr = $bdd->prepare("INSERT INTO membres('pseudo', 'mail', 'mot de passe') values (?,?,?)");
+                    $insertmbr->execute(array($pseudo, $mail, $mdp));
+                    header('Location: accueil.html');
+                }
+        }
+        else
+        {
+            $erreur="votre pseudo ne doit pas être inferieur à 2 caractères !";    
+        }
+    }
+    else
+    {
+        echo "des champs ne sont pas complétés";
+    }
+}
+else 
+{
+if(isset ( $erreur))
+{
+    echo $erreur;
+}
+}
+?>
+
+
+
 <body>
 
     <h2>inscription</h2>
