@@ -19,6 +19,11 @@ if(isset($_POST['forminscription']))
                 if(filter_var($mail, FILTER_VALIDATE_EMAIL))
                     if($mdp == $mdp2)
                     {
+                        {
+                            $insertmbr = $bdd->prepare("INSERT INTO membres('pseudo', 'mail', 'mot de passe') values (?,?,?,)");
+                            $insertmbr->execute(array($pseudo, $mail, $mdp));
+                            header('Location: accueil.html');
+                        }
                     }
                     else
                     {
@@ -41,12 +46,14 @@ if(isset($_POST['forminscription']))
         echo "des champs ne sont pas complétés";
     }
 }
-else {
-    if(isset($erreur))
-    {
-        echo '<font color="red">'.$erreur."</font";
-    }
-    ?>
+else 
+{
+if(isset ( $erreur))
+{
+    echo $erreur;
+}
+}
+?>
 
 
 <body>
