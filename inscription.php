@@ -1,6 +1,7 @@
 <?php
 include'connexion.php';
-if(isset($_POST['forminscription']))
+
+if(isset($_POST['pseudo']))
 {       
 
     if (!empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']))
@@ -10,9 +11,15 @@ if(isset($_POST['forminscription']))
         $mail2 = htmlspecialchars($_POST['mail2']);
         $mdp = password_hash($_POST['mdp']);
         $mdp2 = password_hash($_POST['mdp2']);
+        var_dump($pseudo);
+        var_dump($mail);
+        var_dump($mail2);
+        var_dump($mdp);
+        var_dump($mdp2);
+
     
         $pseudolenght = strlen($pseudo);
-        if($pseudolenght <=2 ) 
+        if($pseudolenght >5 ) 
         {
             if($mail == $mail2)
             {
@@ -20,7 +27,7 @@ if(isset($_POST['forminscription']))
                     if($mdp == $mdp2)
                     {
                         {
-                            $insertmbr = $bdd->prepare("INSERT INTO membres('pseudo', 'mail', 'mot de passe') values (?,?,?,)");
+                            $insertmbr = $bdd->prepare("INSERT INTO membres('pseudo', 'mail', 'mot de passe') values (?,?,?)");
                             $insertmbr->execute(array($pseudo, $mail, $mdp));
                             header('Location: accueil.html');
                         }
@@ -28,7 +35,6 @@ if(isset($_POST['forminscription']))
                     else
                     {
                         $erreur="vos mots de passe ne correspondent pas!";
-
                 }
             }
             else
@@ -57,21 +63,22 @@ if(isset ( $erreur))
 
 
 <body>
+
     <h2>inscription</h2>
-    <form method="POST">
+    <form method="POST" action="inscription.php">
 
     <table>
         <tr>
-            <td align="right">
+            <td>
 
-            <label for="pseudo"> pseudo :</label>
+            <label for="pseudo" > pseudo :</label>
             </td>
             <td>
                 <input type="text" placeholder="votre pseudo" name="Pseudo" id="pseudo" value="<?php if (isset($pseudo)){echo $pseudo;}?>">
             </td>
         </tr>
         <tr>
-            <td align="right">
+            <td>
                 <label for="mail"> adresse mail :</label>
             </td>
             <td>
@@ -79,7 +86,7 @@ if(isset ( $erreur))
             </td>
         </tr>
         <tr>
-            <td align="right">
+            <td>
 
             <label for="mail2"> confirmation de l'adresse mail :</label>
             </td>
@@ -88,7 +95,7 @@ if(isset ( $erreur))
             </td>
         </tr>
         <tr>
-            <td align="right">
+            <td>
 
             <label for="mdp"> mot de passe :</label>
             </td>
@@ -97,7 +104,7 @@ if(isset ( $erreur))
             </td>
         </tr>
         <tr>
-            <td align="right">
+            <td >
 
             <label for="mdp2"> confirmation du mot de passe :</label>
             </td>
@@ -106,8 +113,8 @@ if(isset ( $erreur))
             </td>
         </tr>
         <tr>
-            <td align="right"></td>
-            <td><input type="submit" name=" forminscription"value="je m'inscris"></td>
+            <td ></td>
+            <td><input type="submit" name="pseudo" value="je m'inscris"></td>
         </tr>
     </table>
     </form>
