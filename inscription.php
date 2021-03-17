@@ -119,3 +119,49 @@ if(isset ( $erreur))
     </table>
     </form>
 </body>
+
+
+
+
+
+<body>
+
+    <h2>inscription</h2>
+    <form method="POST" action="inscription.php">
+
+    <table>
+        <tr>
+            <td>
+
+            <label for="pseudo" > pseudo :</label>
+            </td>
+            <td>
+                <input type="text" placeholder="votre pseudo" name="Pseudo" id="pseudo" value="">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="mail"> adresse mail :</label>
+            </td>
+            <td>
+                <input type="email" placeholder="votre adresse mail" name="Mail" id="mail"  value="" >
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            <label for="mdp"> mot de passe :</label>
+            </td>
+            <td>
+                <input type="password" placeholder="votre mot de passe" name="Mdp" id="mdp" >
+            </td>
+        </tr>
+        <tr>
+            <td ></td>
+            <td><input type="submit" name="pseudo" value="je m'inscris"></td>
+        </tr>
+    </table>
+    </form>
+</body>PHP Warning:  include(connexion.php): failed to open stream: No such file or directory in source_file.php on line 2
+PHP Warning:  include(): Failed opening 'connexion.php' for inclusion (include_path='.:/usr/share/php') in source_file.php on line 2
+Process finished.
