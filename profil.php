@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'connexion.php';
+include 'header.php';
 
 if(isset($_GET['id']) AND $_GET['id'] > 0) {
    $getid = intval($_GET['id']);
@@ -27,6 +28,8 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          <br />
          <a href="editionprofil.php">Editer mon profil</a>
          <a href="deconnexion.php">Se déconnecter</a>
+
+         <a href="gestionstocks.php"> Gerer les stocks de mon entreprise :)</a>
          <?php
          }
          ?>

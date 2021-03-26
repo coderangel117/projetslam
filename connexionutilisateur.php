@@ -1,5 +1,7 @@
 <?php
 session_start();
+include 'header.php';
+
 include 'connexion.php';
 if(isset($_POST['formconnexion'])) {
    $mailconnect = htmlspecialchars($_POST['mailconnect']);
@@ -31,7 +33,7 @@ if(isset($_POST['formconnexion'])) {
       <div align="center">
          <h2>Connexion</h2>
          <br /><br />
-         <form method="POST" action="">
+         <form method="POST"  action="">
             <input type="email" name="mailconnect" placeholder="Mail" />
             <input type="password" name="mdpconnect" placeholder="Mot de passe" />
             <br /><br />
