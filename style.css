@@ -4,11 +4,15 @@
 }
 .titre
 {
-    float: center;
-    background-color: blue;
+    text-align: center;
+    background-color:blue;
     color: white;
 }
-header
-{
-    background-color: rgb(119, 87, 209);
-}<
+
+
+li{
+    list-style: none;
+}
+ul{
+    list-style: none;
+}
