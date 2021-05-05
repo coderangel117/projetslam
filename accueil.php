@@ -1,5 +1,5 @@
 <head>
-<title>accueil</title>
+<title>accueil AU BON MARCHE </title>
 <link rel="stylesheet" href="style.css">
 </head>
 <?php

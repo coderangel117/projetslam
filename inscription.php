@@ -2,6 +2,7 @@
 include 'connexion.php';
 
 include 'header.php';
+
 if(isset($_POST['forminscription'])) {
    $pseudo = htmlspecialchars($_POST['pseudo']);
    $mail = htmlspecialchars($_POST['mail']);
@@ -54,7 +55,12 @@ if(isset($_POST['forminscription'])) {
       $erreur = "Tous les champs doivent être complétés !";
    }
 }
-?>     <body>
+?>
+<head>
+   <title>inscription AU BON MARCHE</title>
+</head>
+
+<body>
 <div align="center">
    <h2>Inscription</h2>
    <br /><br />
