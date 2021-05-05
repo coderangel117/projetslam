@@ -1,10 +1,10 @@
 <header>
-    <style>
-        .titre
-        {
-            background-color: blue;
-            color: white;
-        }
-    </style>
+ 
     <div class="titre"> <h1>AU BON MARCHE</h1></div>
-</header>
+    <li>
+        <a href="accueil.php">accueil</a>
+        <a href="inscription.php">Inscription</a>
+        <a href="connexionutilisateur">connexion</a>
+    </li>
+
+    </header>

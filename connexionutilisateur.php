@@ -26,7 +26,7 @@ if(isset($_POST['formconnexion'])) {
 ?>
 <html>
    <head>
-      <title>TUTO PHP</title>
+      <title>connexion AU BON MARCHE</title>
       <meta charset="utf-8">
    </head>
    <body>
