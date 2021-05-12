@@ -3,7 +3,7 @@
 $user="test";
 $pass="mdp";
 try{
-    $connexion = new PDO( 'mysql:host=127.0.0.1; dbname=projetslam', $user, $pass);
+    $connexion = new PDO( 'mysql:host=127.0.0.1; dbname=projetslaml', $user, $pass);
 }catch(Exception $e)
 
 {
