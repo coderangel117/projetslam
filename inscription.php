@@ -8,19 +8,27 @@ if(isset($_POST['forminscription'])) {
    $prenom = htmlspecialchars($_POST['prenom']);
    $login = htmlspecialchars($_POST['login']);
    $mdp = hash('sha256', $_POST['mdp'],false);
-   $mdp2 = hash('sha256', $_POST['mdp'],false);
+   $mdp2 = hash('sha256', $_POST['mdp2'],false);
 
    if(!empty($_POST['login'])AND !empty($_POST['mdp']) AND !empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mdp2'])) {
       $mdplength = strlen($mdp);
       if($mdplength>2){
          if($mdp == $mdp2) {
+            try{
+
             $insert = $connexion->prepare("INSERT INTO utilisateurs (nom, prenom, identifiant, motdepasse) VALUES(?, ?, ?, ?)");
+            var_dump($insert);
             $insert->execute(array($nom, $prenom, $login, $mdp));
+            }catch(Exception $e){
+               var_dump($e);
+            }
+
             $message = "Votre compte a bien été créé ! <a href=\"connexionutilisateur.php\">Me connecter</a>";
          }else {$message = "Vos mots de passes ne correspondent pas !";}
       }else{$message = "mot de passe trop  petit pour être sécurisé";}
    }else {$message = "Tous les champs doivent être complétés !";}
 }
+
 ?>
 <head>
    <title>inscription AU BON MARCHE</title>
