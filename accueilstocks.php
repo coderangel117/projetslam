@@ -20,9 +20,19 @@ include 'header.php';
             <a class="nav-link" href="clients.php">clients</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="fournisseurs.php" id="fournisseur" >
-              fournisseur
-            </a>
+            <ul>
+              <a class="nav-link dropdown-toggle" href="fournisseurs.php" id="fournisseur" >fournisseur</a>
+              <li>
+                <a href="selectfournisseur.php">retrouver un fournisseur</a>
+              </li>
+              <li>
+                <a href="insertfournisseur.php">rentrer un fournisseur</a>
+              </li>
+              <li>
+                <a href="deletefournisseur.php">supprimer un fournisseur</a>
+              </li>
+
+            </ul>
           </li>
         </ul>
       </div>

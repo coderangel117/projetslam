@@ -14,9 +14,10 @@ ATTENTION faute de frappe dans connexion.php:
 "projetslaml" à la place de "projetslam"
 
 # 13/05/21
-creation clients.php
-creation fournisseurs.php
-creation produits.php
+creation fichier select/insert/deleteclient.php
+creation  fichier select/insert/deletefournisseur.php
+creation  fichier select/insert/deleteproduit.php
+
 
 creation formulaire inserer donnée dans la BDD 
 
