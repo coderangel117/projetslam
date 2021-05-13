@@ -17,7 +17,5 @@ ATTENTION faute de frappe dans connexion.php:
 creation fichier select/insert/deleteclient.php
 creation  fichier select/insert/deletefournisseur.php
 creation  fichier select/insert/deleteproduit.php
-
-
-creation formulaire inserer donnée dans la BDD 
+    # fichier accueilstock.php menu deroulant fonctionel
 
