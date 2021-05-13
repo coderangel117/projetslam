@@ -4,11 +4,11 @@ include 'header.php';
 
 if(isset($_POST['forminscription'])) {
 
-   $nom = htmlspecialchars($_POST['nom']);
-   $prenom = htmlspecialchars($_POST['prenom']);
-   $login = htmlspecialchars($_POST['login']);
-   $mdp = hash('sha256', $_POST['mdp'],false);
-   $mdp2 = hash('sha256', $_POST['mdp2'],false);
+   $nom = $_POST['nom'];
+   $prenom = $_POST['prenom'];
+   $login = $_POST['login'];
+   $mdp = sha1($_POST['mdp']);
+   $mdp2 = sha1($_POST['mdp2']);
 
    if(!empty($_POST['login'])AND !empty($_POST['mdp']) AND !empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mdp2'])) {
       $mdplength = strlen($mdp);
@@ -17,10 +17,9 @@ if(isset($_POST['forminscription'])) {
             try{
 
             $insert = $connexion->prepare("INSERT INTO utilisateurs (nom, prenom, identifiant, motdepasse) VALUES(?, ?, ?, ?)");
-            var_dump($insert);
             $insert->execute(array($nom, $prenom, $login, $mdp));
             }catch(Exception $e){
-               var_dump($e);
+               echo('pb insert');
             }
 
             $message = "Votre compte a bien été créé ! <a href=\"connexionutilisateur.php\">Me connecter</a>";
@@ -87,8 +86,6 @@ if(isset($_POST['forminscription'])) {
                   <input type="password" placeholder="Confirmez votre mdp" id="mdp2" name="mdp2" />
                </td>
             </tr>
-
-
 
             <tr>
             <td></td>
