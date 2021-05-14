@@ -9,7 +9,13 @@ include'connexionstock.php';
 </div>
 
 <?php
- 
+if(isset($_POST['search'])){
+    $search = $_POST ['search'];
+}
+
+$searchup = $connexion->query('SELECT * from fournisseur where ');
+
+
 $selectfournisseur = $connexion->query('SELECT nomfournisseur, adresse, telephone, mail FROM fournisseur');
 
 ?>
