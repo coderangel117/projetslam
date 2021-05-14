@@ -10,7 +10,7 @@ include'connexionstock.php';
 
 <?php
  
-$selectclient = $connexion->query('SELECT prenom, nom FROM client');
+$selectfournisseur = $connexion->query('SELECT nomfournisseur, adresse, telephone, mail FROM fournisseur');
 
 ?>
 <div class="tableau" >
@@ -20,25 +20,36 @@ echo '<table>
     <tr>
         <td>
             <p>
-                prenom
+                nom du fournisseur 
             </p>
         </td>
         <td>
             <p>
-                nom
+                adresse
             </p>
         </td>
+        <td>
+        <p>
+            numero de telephone
+        </p>
+    </td>
+    <td>
+        <p>
+            e-mail
+        </p>
+    </td>
     </tr>';
-
-    while ($tableau = $selectclient->fetch())
+    while ($tableau = $selectfournisseur->fetch())
     {
     ?>
     <table >
     <?php
     echo ('
     <tr>
-        <td>' . $tableau['prenom'] . '</td>
-        <td>' . $tableau['nom']. '</td>
+        <td>' . $tableau['nomfournisseur'] . '</td>
+        <td>' . $tableau['adresse']. '</td>
+        <td>' . $tableau['telephone']. '</td>
+        <td>' . $tableau['mail']. '</td>
     </tr>
 </table>') ;
 }

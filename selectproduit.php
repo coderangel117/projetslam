@@ -2,6 +2,9 @@
 include'headerstock.php';
 include'connexionstock.php';
 ?>
+<head>
+    <link rel="stylesheet" href="stylestock.css">
+</head>
 
 <h1>Bases de données MySQL</h1>  
 <div class="search">
