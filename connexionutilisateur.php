@@ -4,11 +4,11 @@ include 'header.php';
 
 include 'connexion.php';
 if(isset($_POST['formconnexion'])) {
-   $mailconnect = htmlspecialchars($_POST['mailconnect']);
+   $login = htmlspecialchars($_POST['login']);
    $mdpconnect = sha1($_POST['mdpconnect']);
-   if(!empty($mailconnect) AND !empty($mdpconnect)) {
-      $requser = $connexion->prepare("SELECT * FROM membres WHERE mail = ? AND motdepasse = ?");
-      $requser->execute(array($mailconnect, $mdpconnect));
+   if(!empty($login) AND !empty($mdpconnect)) {
+      $requser = $connexion->prepare("SELECT * FROM utilisateurs WHERE identifiant = ? AND motdepasse = ?");
+      $requser->execute(array($login, $mdpconnect));
       $userexist = $requser->rowCount();
       if($userexist == 1) {
          $userinfo = $requser->fetch();
@@ -17,16 +17,16 @@ if(isset($_POST['formconnexion'])) {
          $_SESSION['mail'] = $userinfo['mail'];
          header("Location: profil.php?id=".$_SESSION['id']);
       } else {
-         $erreur = "Mauvais mail ou mot de passe !";
+         $message = "Mauvais login ou mot de passe !";
       }
    } else {
-      $erreur = "Tous les champs doivent être complétés !";
+      $message = "Tous les champs doivent être complétés !";
    }
 }
 ?>
 <html>
    <head>
-      <title>TUTO PHP</title>
+      <title>connexion AU BON MARCHE</title>
       <meta charset="utf-8">
    </head>
    <body>
@@ -34,16 +34,19 @@ if(isset($_POST['formconnexion'])) {
          <h2>Connexion</h2>
          <br /><br />
          <form method="POST"  action="">
-            <input type="email" name="mailconnect" placeholder="Mail" />
+            <input type="text" name="login" placeholder="login" />
             <input type="password" name="mdpconnect" placeholder="Mot de passe" />
             <br /><br />
             <input type="submit" name="formconnexion" value="Se connecter !" />
          </form>
          <?php
-         if(isset($erreur)) {
-            echo '<font color="red">'.$erreur."</font>";
+         if(isset($message)) {
+            echo '<font color="red">'.$message."</font>";
          }
          ?>
       </div>
    </body>
 </html>
+<?php
+include 'footer.php';
+?>

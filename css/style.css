@@ -1,0 +1,26 @@
+.membres
+{
+    text-align: right;
+}
+.titre
+{
+    text-align: center;
+    background-color:blue;
+    color: white;
+}
+
+
+li{
+    list-style: none;
+}
+ul{
+    list-style: none;
+}
+.forminscription{
+    text-align: center;
+}
+footer{
+    background-color:rgb(76, 83, 126);
+    color: whitesmoke;
+    text-align: center;
+}

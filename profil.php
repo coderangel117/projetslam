@@ -39,3 +39,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
 <?php   
 }
 ?>
+
+<?php
+include 'footer.php';
+?>
