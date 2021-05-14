@@ -66,7 +66,7 @@ include 'headerstock.php';
 
 <H1>
 
-Bienvenue sur le site internet" A LA BONNE GESTION" si vous vous trouvez sur cette page, c'est que vous êtes connectés
+Bienvenue sur le site internet" A LA BONNE GESTION" si vous vous trouvez sur cette page, c'est que vous êtes connecté
 </H1>
 
 <?php
