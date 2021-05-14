@@ -31,8 +31,6 @@ else {$message = "Tous les champs doivent être complétés !";}
     </div>
     <input type="text" class="form-control" placeholder="saisissez le nom du client" id="nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>">
     <br>
-
-    <br>
     <button type="submit" class="btn btn-primary">Submit</button>
     <?php
 if(isset($message)){

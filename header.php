@@ -1,6 +1,6 @@
 <head>
 <link rel="stylesheet" href="css/style.css">
-<script src="js/confirmation.js"></script>              
+<!--<script src="js/confirmation.js"></script>-->
 
 </head>
 <header>
