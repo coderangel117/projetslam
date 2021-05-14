@@ -63,3 +63,6 @@ include 'headerstock.php';
 		</li>
 	</ul>
 </nav>
+<?php
+include 'footer.php';
+?>

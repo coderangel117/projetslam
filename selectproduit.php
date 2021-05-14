@@ -64,6 +64,6 @@ $selectproduit = $connexion->query('SELECT nomproduit, prixvente, prixachat, qua
     ?></table>
 
 </div>
-
-
-
+<?php
+include 'footer.php';
+?>

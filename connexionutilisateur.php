@@ -47,3 +47,6 @@ if(isset($_POST['formconnexion'])) {
       </div>
    </body>
 </html>
+<?php
+include 'footer.php';
+?>

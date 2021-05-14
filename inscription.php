@@ -103,3 +103,6 @@ if(isset($_POST['forminscription'])) {
       ?>
    </div>
 </body>
+<?php 
+include 'footer.php';
+?>

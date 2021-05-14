@@ -62,4 +62,5 @@ if(isset($_SESSION['id'])) {
 else {
    header("Location: connexion.php");
 }
+include 'footer.php';
 ?>

@@ -41,3 +41,7 @@ if(isset($message)){
 }
 ?>
 </form>
+
+<?php
+include 'footer.php';
+?>

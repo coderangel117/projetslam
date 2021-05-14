@@ -62,3 +62,6 @@ echo '<table>
 ?>
 </table>
 </div>
+<?php
+include 'footer.php';
+?>
