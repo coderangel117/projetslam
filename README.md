@@ -22,3 +22,5 @@ fichier accueilstock.php menu deroulant fonctionel
 # 14/05/21
 fichier selectclient fonctionel (tableau sans bordure mais aligné)
     IDEE barre de recherche pour recherche affinée (recherche de caractère)
+    
+    select avec condition sur tous les champs qui contiennent les caractères de la variable rentrée dans la barre de recherche
