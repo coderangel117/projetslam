@@ -47,12 +47,12 @@ $selectproduit = $connexion->query('SELECT nomproduit, prixvente, prixachat, qua
         <?php
         echo ('
         <tr>
-            <td>' . $tableau['nomproduit'] . ' ' .'</td>
-            <td>' . $tableau['prixvente'] . ' ' .'</td>
-            <td>' . $tableau['prixachat'] . ' ' .'</td>
+            <td>' . $tableau['nomproduit'] . '</td>
+            <td>' . $tableau['prixvente'] . '</td>
+            <td>' . $tableau['prixachat'] .'</td>
 
             <div class="quantite">
-                <td>' . $tableau['quantitestock'] . ' ' .'</td>
+                <td>' . $tableau['quantitestock'] .'</td>
             </div>
             
         </tr>
