@@ -37,7 +37,7 @@ echo '<table>
     <?php
     echo ('
     <tr>
-        <td>' . $tableau['prenom'] . ' ' .'</td>
+        <td>' . $tableau['prenom'] . ' ''</td>
         <td>' . $tableau['nom']. '</td>
     </tr>
 </table>') ;
