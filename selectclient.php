@@ -29,7 +29,6 @@ echo '<table>
             </p>
         </td>
     </tr>';
-var_dump($selectclient);
     while ($tableau = $selectclient->fetch())
     {
     ?>

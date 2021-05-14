@@ -38,7 +38,6 @@ echo '<table>
         </td>
     </td>
     </tr>';
-var_dump($selectproduit);
     while ($tableau = $selectproduit->fetch())
     {
     ?>
