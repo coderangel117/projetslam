@@ -1,5 +1,5 @@
 <?php 
-include 'connexion.php';
+include 'connexionstock.php';
 include 'headerstock.php';
 ?>
 
