@@ -6,7 +6,7 @@
 -liste lien sur accueil.php
 
 # 12/05/21
-gestiostock.php--> accueilstock.php
+gestionstock.php--> accueilstock.php
 creation connexionstock.php
 lien css bootstrap
 

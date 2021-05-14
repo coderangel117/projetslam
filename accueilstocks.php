@@ -10,7 +10,8 @@ include 'headerstock.php';
 </head>
 <nav>
 	<ul>
-		<li class="deroulant"><a href="#">actions sur les produits &ensp;</a>
+		<li class="deroulant">
+      <a href="#">actions sur les produits &ensp;</a>
 			<ul class="sous">
         <li>
           <a href="selectproduit.php" target="_blank" rel="noopener noreferrer">liste des produits déjà enregistrés</a>
@@ -26,7 +27,8 @@ include 'headerstock.php';
         </li>
 			</ul>
 		</li>
-    <li class="deroulant"><a href="#">actions sur les clients &ensp;</a>
+    <li class="deroulant">
+      <a href="#">actions sur les clients &ensp;</a>
 			<ul class="sous">
         <li>
           <a href="selectclient.php" target="_blank" rel="noopener noreferrer">liste des clients déjà enregistrés</a>
@@ -42,7 +44,8 @@ include 'headerstock.php';
         </li>
 			</ul>
 		</li>
-    <li class="deroulant"><a href="#">actions sur les fournisseurs &ensp;</a>
+    <li class="deroulant">
+      <a href="#">actions sur les fournisseurs &ensp;</a>
 			<ul class="sous">
         <li>
           <a href="selectfournisseur.php" target="_blank" rel="noopener noreferrer">liste des fournisseurs déjà enregistrés</a>
