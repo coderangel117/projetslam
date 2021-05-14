@@ -1,32 +1,48 @@
 <?php
 include'headerstock.php';
+include'connexionstock.php';
 ?>
 
 <h1>Bases de données MySQL</h1>  
+<div class="search">
+<input type="search" name="search" id="search"  placeholder="search" value="search">
+</div>
+
 <?php
-    $servname = "localhost"; $dbname = "projetslam"; $user = "test"; $pass = "mdp";
-    
-    try{
-        $dbco = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
-        $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        /*Sélectionne les valeurs dans les colonnes prenom et mail de la table
-         *users pour chaque entrée de la table*/
-        $sth = $dbco->prepare("SELECT  nomfournisseur, adresse, telephone, mail FROM fournisseur");
-        $sth->execute();
-        
-        /*Retourne un tableau associatif pour chaque entrée de notre table
-         *avec le nom des colonnes sélectionnées en clefs*/
-        $resultat = $sth->fetchAll(PDO::FETCH_ASSOC);
-        
-        /*print_r permet un affichage lisible des résultats,
-         *<pre> rend le tout un peu plus lisible*/
-        echo '<pre>';
-        print_r($resultat);
-        echo '</pre>';
-    }
-          
-    catch(PDOException $e){
-        echo "Erreur : " . $e->getMessage();
-    }
+ 
+$selectclient = $connexion->query('SELECT prenom, nom FROM client');
+
 ?>
+<div class="tableau" >
+<?php
+echo '<table>
+
+    <tr>
+        <td>
+            <p>
+                prenom
+            </p>
+        </td>
+        <td>
+            <p>
+                nom
+            </p>
+        </td>
+    </tr>';
+
+    var_dump ($selectclient);
+    while ($tableau = $selectclient->fetch())
+    {
+    ?>
+    <table >
+    <?php
+    echo ('
+    <tr>
+        <td>' . $tableau['prenom'] . ' ' .'</td>
+        <td>' . $tableau['nom']. '</td>
+    </tr>
+</table>') ;
+}
+?>
+</table>
+</div>

@@ -1,45 +1,64 @@
 <?php
 include'headerstock.php';
+include'connexionstock.php';
 ?>
 
 <h1>Bases de données MySQL</h1>  
+<div class="search">
+<input type="search" name="search" id="search"  placeholder="search" value="search">
+</div>
+
 <?php
-    $servname = "localhost"; $dbname = "projetslam"; $user = "test"; $pass = "mdp";
-    
-    try{
-        $dbco = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
-        $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        /*Sélectionne les valeurs dans les colonnes prenom et mail de la table
-         *users pour chaque entrée de la table*/
-        $sth = $dbco->prepare("SELECT  nomfournisseur, adresse, telephone, mail FROM fournisseur");
-        $sth->execute();
-        
-        /*Retourne un tableau associatif pour chaque entrée de notre table
-         *avec le nom des colonnes sélectionnées en clefs*/
-        $resultat = $sth->fetchAll(PDO::FETCH_ASSOC);
-        
-        /*print_r permet un affichage lisible des résultats,
-         *<pre> rend le tout un peu plus lisible*/
-        echo '<pre>';
-        print_r($resultat);
-        echo '</pre>';
-    }
-          
-    catch(PDOException $e){
-        echo "Erreur : " . $e->getMessage();
-    }
+ 
+$selectproduit = $connexion->query('SELECT nomproduit, prixvente, prixachat, quantitestock FROM produits');
 ?>
+<div class="tableau" >
+<?php
+echo '<table>
+
+    <tr>
+        <td>
+            <p>
+                nom du produit
+            </p>
+        </td>
+        <td>
+            <p>
+                prix de vente 
+            </p>
+        </td>
+        <td>
+            <p>
+                prix d\'achat 
+            </p>
+            <td>
+            <p>
+                quantité en stock            
+            </p>
+        </td>
+    </td>
+    </tr>';
+var_dump($selectproduit);
+    while ($tableau = $selectproduit->fetch())
+    {
+    ?>
+    <table >
+
+    <?php
+    echo ('
+    <tr>
+        <td>' . $tableau['nomproduit'] . ' ' .'</td>
+        <td>' . $tableau['prixvente'] . ' ' .'</td>
+        <td>' . $tableau['prixachat'] . ' ' .'</td>
+        <td>' . $tableau['quantitestock'] . ' ' .'</td>
+
+        
+    </tr>
+</table>') ;
+}
+?></table>
+
+</div>
 
 
-<form action="#" method="post">
-    <select id="pet-select">
-        <option value="">--Please choose an option--</option>
-        <option value="dog">Dog</option>
-        <option value="cat">Cat</option>
-        <option value="hamster">Hamster</option>
-        <option value="parrot">Parrot</option>
-        <option value="spider">Spider</option>
-        <option value="goldfish">Goldfish</option>
-    </select>
-</form>
+

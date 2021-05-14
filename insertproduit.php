@@ -31,6 +31,7 @@ prix vente
 <br>prixachat
 <input type="text" class="form-control" placeholder="saisissez le prix d'achat du produit" id="prixachat" name="prixachat" value="<?php if(isset($prixachat)) { echo $prixachat; } ?>">
 <br>
+quantité de produit 
 <input type="text" class="form-control" placeholder="saisissez la quantité de ce produit" id="quantite" name="quantite" value="<?php if(isset($quantite)) { echo $quantite; } ?>">
 <br>
 <button type="submit" class="btn btn-primary">Submit</button>

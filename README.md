@@ -17,5 +17,8 @@ ATTENTION faute de frappe dans connexion.php:
 creation fichier select/insert/deleteclient.php
 creation  fichier select/insert/deletefournisseur.php
 creation  fichier select/insert/deleteproduit.php
-    # fichier accueilstock.php menu deroulant fonctionel
+fichier accueilstock.php menu deroulant fonctionel
 
+# 14/05/21
+fichier selectclient fonctionel (tableau sans bordure mais aligné)
+    IDEE barre de recherche pour recherche affinée (recherche de caractère)
