@@ -1,5 +1,6 @@
 <head>
 <link rel="stylesheet" href="css/stylestock.css">
+<script src="js/confirmation.js"></script>              
 
 </head>
 <body>    
