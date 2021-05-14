@@ -30,7 +30,6 @@ echo '<table>
         </td>
     </tr>';
 
-    var_dump ($selectclient);
     while ($tableau = $selectclient->fetch())
     {
     ?>

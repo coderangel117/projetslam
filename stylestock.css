@@ -85,9 +85,12 @@ nav > ul li:hover .sous{
     margin: 50px 20px;
     height: 1500px;
 }
-.tableau{
-    border-spacing: 2;
-    border-color:black;
+.collapse, td{
+    border-collapse: collapse;
     border-style: solid;
-    border-width: 2px; 
+    border-color: blue;
+}
+td{
+    
+    border-color: black;
 }
