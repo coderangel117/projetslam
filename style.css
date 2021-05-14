@@ -19,5 +19,8 @@ ul{
 .forminscription{
     text-align: center;
 }
-
-  
+footer{
+    background-color:rgb(76, 83, 126);
+    color: whitesmoke;
+    text-align: center;
+}

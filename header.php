@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <header>
-    <div class="titre"> <h1>AU BON MARCHE</h1></div>
+    <div class="titre"> <h1>A LA BONNE GESTION </h1></div>
     <nav>
         <ul>
             <li>
