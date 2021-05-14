@@ -77,11 +77,17 @@ nav > ul li:hover .sous{
     background-color: RGBa(200,200,200,0.1);
 }
 .deroulant > a::after{
-    content:" ▼";
+    content:"▼";
     font-size: 12px;
 }
 
 .conteneur{
-  margin: 50px 20px;
-  height: 1500px;
+    margin: 50px 20px;
+    height: 1500px;
+}
+.tableau{
+    border-spacing: 2;
+    border-color:black;
+    border-style: solid;
+    border-width: 2px; 
 }
