@@ -14,6 +14,7 @@ include'connexionstock.php';
 <?php
  
 $selectproduit = $connexion->query('SELECT nomproduit, prixvente, prixachat, quantitestock FROM produits');
+var_dump($selectproduit);
 ?>
 <div class="collapse" >
     <?php

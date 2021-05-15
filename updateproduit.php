@@ -14,6 +14,7 @@ $nouvellequantite= $_POST['nouvellequantite'];
 
 
 $updateproduit = $connexion->query('UPDATE produits SET nomproduit=$anciennom, prixvente=$ancienprixv, prixachat=$ancienprixa, quantitestock= $anciennequantite  WHERE nomproduit=$anciennom, prixvente=$ancienprixv, prixachat=$ancienprixa ,quantitestock=$nouvellequantite');
+var_dump($updateproduit);
 
 ?>
 <head>

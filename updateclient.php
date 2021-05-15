@@ -10,6 +10,7 @@ $nouveaunom= $_POST['nouveaunom'];
 }
 
 $updateclient = $connexion->query('UPDATE client SET prenom=$nouveauprenom, nom=$nouveaunom where prenom=$ancienprenom,  prenom=$ancienprenom');
+var_dump($updateclient);
 
 ?>
 <head>

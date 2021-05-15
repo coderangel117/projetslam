@@ -11,7 +11,7 @@ $email = $_POST['email'];
 
     
 $updatefournisseur = $connexion->query(" UPDATE fournisseur SET nomfournisseur , adresse,telephone, mail)");
-
+var_dump($updatefournisseur);
 ?>
 <head>
 <title>modifier fournisseur</title>

@@ -33,18 +33,21 @@ FONCTIONNELS
 
 
     HISTORIQUE le 15/05/21 à 23h00
-    select client FONCTIONNEL
-    select produit FONCTIONNEL
-    select fournisseur FONCTIONNEL
+    select client FONCTIONNEL vardump=string
+    select produit FONCTIONNEL vardump=string
+    select fournisseur FONCTIONNEL  vardump=string
 
     insert client FONCTIONNEL
-    insert produit FONCTIONNEL
+    insert produit  vardump=bool
     insert fournisseur FONCTIONNEL
 
-    update client
-    update produit
-    update fournisseur
+    update client vardump=bool
+    update produit vardump=bool
+    update fournisseur vardump=bool
 
-    delete client
-    delete produit
-    delete fournisseur
+    delete client vardump=bool
+    delete produit vardump=bool
+    delete fournisseur vardump=bool
+
+vardump=bool ca fonctionne pas 
+vardump=string=niquel
