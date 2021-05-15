@@ -10,7 +10,7 @@ if(isset($_POST['nom']) && isset($_POST['adresse']) && isset($_POST['telephone']
 }
 ?>
 <?php
-$deletefournisseur = $connexion->query("DELETE nomfournisseur, adresse, telephone, mail FROM fournisseur where nomfournisseur='.$nomfournisseur.'and adresse=.'$adresse and telephone=.'$telephone and mail=.'$mail");
+$deletefournisseur = $connexion->query('DELETE nomfournisseur, adresse, telephone, mail FROM fournisseur where nomfournisseur=$nomfournisseurand adresse=$adresse and telephone=$telephone and mail=$mail');
 var_dump($deletefournisseur);
 ?>
 <head>

@@ -10,12 +10,15 @@ if(isset($_POST['nomproduit']) && isset($_POST['prixvente']) && isset($_POST['pr
 }
 ?>
 <?php
-$deleteproduit = $connexion->query("DELETE nomproduit, prixvente, prixachat, quantitestock FROM produits where nomproduit='.$nomproduit.'and prixvente=.'$prixvente and prixachat=.'$prixachat and quantitestock=.'$quantitestock");
+$deleteproduit = $connexion->query('DELETE nomproduit, prixvente, prixachat, quantitestock FROM produits where nomproduit=$nomproduitand prixvente=$prixvente and prixachat=$prixachat and quantitestock=$quantitestock');
 
 var_dump($deleteproduit);
 ?>
-
-
+<head>
+    <title>
+        supprimer produit
+    </title>
+</head>
 <form method="POST" action="" > <!--- onsubmit="return confirmation()" -->
     <div class="titreform"> 
         nom du produit

@@ -8,10 +8,15 @@ if(isset($_POST['prenom']) && isset($_POST['nom'])){
 }
 ?>
 <?php
-$deleteclient = $connexion->query("DELETE prenom, nom FROM client where prenom='.$prenom.'and nom=.$nom");
+$deleteclient = $connexion->query('DELETE prenom, nom FROM client where prenom=$prenomand nom=$nom');
 
 var_dump($deleteclient);
 ?>
+<head>
+    <title>
+        supprimer client
+    </title>
+</head>
 <form method="POST" action="" > <!--- onsubmit="return confirmation()" -->
     <div class="titreform"> 
         prenom client 

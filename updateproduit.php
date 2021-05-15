@@ -1,7 +1,7 @@
 <?php
 include'connexionstock.php';
 include'headerstock.php';
-if(isset($_POST['anciennom']) && isset($_POST['ancienprixv']) && isset($_POST['ancienprixa']) && isset($_POST['anciennequantite']) && isset($_POST['nouveaunom']) && isset($_POST['nouveauprixv']) && isset($_POST['nouveauprixa']) éé isset($_POST['nouvellequantite']) ){
+if(isset($_POST['anciennom']) && isset($_POST['ancienprixv']) && isset($_POST['ancienprixa']) && isset($_POST['anciennequantite']) && isset($_POST['nouveaunom']) && isset($_POST['nouveauprixv']) && isset($_POST['nouveauprixa']) && isset($_POST['nouvellequantite']) ){
 $anciennom = $_POST['anciennom'];
 $ancienprixv = $_POST['ancienprixv'];
 $ancienprixa = $_POST['ancienprixa'];
@@ -13,11 +13,11 @@ $nouvellequantite= $_POST['nouvellequantite'];
 }
 
 
-$updateproduit = $connexion->query("UPDATE produits SET nomproduit='.$anciennom', prixvente= '.$ancienprixv', prixachat='.$ancienprixa', quantitestock=' . $anciennequantite ' WHERE nomproduit='.$anciennom,' prixvente='.$ancienprixv', prixachat='.$ancienprixa ', quantitestock='.$quantite");
+$updateproduit = $connexion->query('UPDATE produits SET nomproduit=$anciennom, prixvente=$ancienprixv, prixachat=$ancienprixa, quantitestock= $anciennequantite  WHERE nomproduit=$anciennom, prixvente=$ancienprixv, prixachat=$ancienprixa ,quantitestock=$nouvellequantite');
 
 ?>
 <head>
-    <title>produit</title>
+    <title>modifier produit</title>
 </head>
 
 <form method="POST" action="">

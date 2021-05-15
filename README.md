@@ -28,3 +28,23 @@ pages  selectclient/fournisseur/produit.php
 FONCTIONNELS
 *** selectclient (tableau sans bordure mais aligné)
     barre de recherche pour recherche affinée => select avec condition sur tous les champs qui contiennent les caractères de la variable rentrée dans la barre de recherche
+
+    TOUTES les erreurs d'index sont enlevées
+
+
+    HISTORIQUE le 15/05/21 à 23h00
+    select client FONCTIONNEL
+    select produit FONCTIONNEL
+    select fournisseur FONCTIONNEL
+
+    insert client FONCTIONNEL
+    insert produit FONCTIONNEL
+    insert fournisseur FONCTIONNEL
+
+    update client
+    update produit
+    update fournisseur
+
+    delete client
+    delete produit
+    delete fournisseur
