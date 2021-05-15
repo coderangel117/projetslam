@@ -13,8 +13,7 @@ $nouveauprixa = $_POST['nouveauprixa'];
 $nouvellequantite= $_POST['nouvellequantite'];
 
 
-$insert = $connexion->prepare('UPDATE fournisseur SET nomproduit=$anciennom, prixvente= $ancienprixv ,prixachat=$ancienprixa, quantitestock= $anciennequantite where quantitestock='.$quantite);
-$message = "les données ont bien été enregistrées ! ";
+$updateproduit = $connexion->query("UPDATE produits SET nomproduit='.$anciennom', prixvente= '.$ancienprixv', prixachat='.$ancienprixa', quantitestock=' . $anciennequantite ' WHERE nomproduit='.$anciennom,' prixvente='.$ancienprixv', prixachat='.$ancienprixa ', quantitestock='.$quantite");
 
 ?>
 <head>
