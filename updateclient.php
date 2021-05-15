@@ -13,7 +13,7 @@ $updateclient = $connexion->query("UPDATE client SET prenom='.$nouveauprenom ', 
 
 ?>
 <head>
-    <title>produit</title>
+    <title>modifier client</title>
 </head>
 
 <form method="POST" action="">
