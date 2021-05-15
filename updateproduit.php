@@ -23,27 +23,25 @@ $message = "les données ont bien été enregistrées ! ";
 </head>
 
 <form method="POST" action="">
-anciennomproduit
-<input type="text" class="form-control" placeholder="saisissez le nom du produit à remplacer "  id="anciennom" name="anciennom" value="<?php if(isset($anciennom)) { echo $anciennom; } ?>">
+produit a remplacer<input type="text" class="form-control" placeholder="saisissez le nom du produit à remplacer "  id="anciennom" name="anciennom" value="<?php if(isset($anciennom)) { echo $anciennom; } ?>">
 <br>
-ancienprixv
-<input type="text" class="form-control" placeholder="saisissez le prix de vente du produit à remplacer" id="ancienprixv" name="ancienprixv" value="<?php if(isset($ancienprixv)) { echo $ancienprixv; } ?>">
-<br>ancienprixa
+prix de vente a remplacer<input type="text" class="form-control" placeholder="saisissez le prix de vente du produit à remplacer" id="ancienprixv" name="ancienprixv" value="<?php if(isset($ancienprixv)) { echo $ancienprixv; } ?>">
+<br>ancien prixa
 <input type="text" class="form-control" placeholder="saisissez le prix d'achat du produit à remplacer" id="ancienprixa" name="ancienprixa" value="<?php if(isset($ancienprixa)) { echo $ancienprixa; } ?>">
 <br>
-anciennequantite 
-<input type="text" class="form-control" placeholder="saisissez la quantité de ce produit à remplacer" id="anciennequantite" name="anciennequantite" value="<?php if(isset($anciennequantite)) { echo $anciennequantite; } ?>">
+quantite à remplacer<input type="text" class="form-control" placeholder="saisissez la quantité de ce produit à remplacer" id="anciennequantite" name="anciennequantite" value="<?php if(isset($anciennequantite)) { echo $anciennequantite; } ?>">
 <br>
 
-nomproduit
+nouveau nom du produit
 <input type="text" class="form-control" placeholder="saisissez le nom du produit choisi"  id="nouveaunom" name="nouveaunom" value="<?php if(isset($nouveaunom)) { echo $nouveaunom; } ?>">
 <br>
-prix vente
+nouveau prix de vente
 <input type="text" class="form-control" placeholder="saisissez le prix de vente du produit choisi" id="nouveauprixv" name="nouveauprixv" value="<?php if(isset($nouveauprixv)) { echo $nouveauprixv; } ?>">
-<br>prixachat
+<br>
+nouveau prix d'achat 
 <input type="text" class="form-control" placeholder="saisissez le prix d'achat du produit choisi" id="nouveauprixva" name="nouveauprixa" value="<?php if(isset($nouveauprixa)) { echo $nouveauprixa; } ?>">
 <br>
-quantité de produit 
+nouvelle quantité de produit 
 <input type="text" class="form-control" placeholder="saisissez la quantité de ce produit choisi" id="nouvellequantite" name="nouvellequantite" value="<?php if(isset($nouvellequantite)) { echo $nouvellequantite; } ?>">
 <br>
 
