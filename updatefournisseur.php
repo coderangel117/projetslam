@@ -9,7 +9,7 @@ $email = $_POST['email'];
 
 
     
-$updatefournisseur = $connexion->preparquerye(" UPDATE fournisseur SET nomfournisseur , adresse,telephone, mail)");
+$updatefournisseur = $connexion->query(" UPDATE fournisseur SET nomfournisseur , adresse,telephone, mail)");
 
 ?>
 <head>
