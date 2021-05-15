@@ -8,8 +8,8 @@ $telephone = $_POST['telephone'];
 $email = $_POST['email'];
 
 
-    $insert = $connexion->prepare(" UPDATE fournisseur SET nomfournisseur , adresse,telephone, mail)");
-    $message = "les données ont bien été enregistrées ! ";
+    
+$updatefournisseur = $connexion->preparquerye(" UPDATE fournisseur SET nomfournisseur , adresse,telephone, mail)");
 
 ?>
 <head>
