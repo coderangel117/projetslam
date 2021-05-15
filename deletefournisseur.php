@@ -35,7 +35,7 @@ var_dump($deletefournisseur);
     <div class="titreform">
        telephone
 </div>
-    <input type="text" class="form-control" placeholder="saisissez le numero de telephone" id="telephone" name="telephone" value="<?php if(isset($telephone)) { echo $telephone; } ?>">
+    <input type="tel" class="form-control" placeholder="saisissez le numero de telephone" id="telephone" name="telephone" value="<?php if(isset($telephone)) { echo $telephone; } ?>">
     <br>
 
     <div class="titreform">
