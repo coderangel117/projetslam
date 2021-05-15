@@ -3,11 +3,12 @@ include'connexionstock.php';
 include'headerstock.php';
 
 
+if(isset($_POST['nom']) && isset($_POST['adresse']) && isset($_POST['telephone']) && isset($_POST['email'])){
 $nom = $_POST['nom'];
 $adresse = $_POST['adresse'];
 $telephone = $_POST['telephone'];
 $email = $_POST['email'];
-
+}
 
 if(!empty($_POST['nom'])AND !empty($_POST['adresse']) AND !empty($_POST['telephone']) AND !empty($_POST['email'])) {
     $insert = $connexion->prepare("INSERT INTO fournisseur (nomfournisseur, adresse,telephone, mail) VALUES(?, ?, ?, ?)");
@@ -19,9 +20,8 @@ else {$message = "Tous les champs doivent être complétés !";}
 
 ?>
 <head>
-<title>fournisseur</title>
+<title>inserer fournisseur</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
 <form method="POST" acttion="">
 

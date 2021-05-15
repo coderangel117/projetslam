@@ -2,20 +2,20 @@
 include'headerstock.php';
 include'connexionstock.php';
 
+if(isset($_POST['nom']) && isset($_POST['adresse']) && isset($_POST['telephone']) && isset($_POST['email'])){
 $nom = $_POST['nom'];
 $adresse = $_POST['adresse'];
 $telephone = $_POST['telephone'];
 $email = $_POST['email'];
-
+}
 
     
 $updatefournisseur = $connexion->query(" UPDATE fournisseur SET nomfournisseur , adresse,telephone, mail)");
 
 ?>
 <head>
-<title>fournisseur</title>
+<title>modifier fournisseur</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 </head>
 <form method="POST" acttion="">
 

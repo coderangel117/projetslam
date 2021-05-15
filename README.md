@@ -8,7 +8,7 @@
 # 12/05/21
 gestionstock.php--> accueilstock.php
 creation connexionstock.php
-css bootstrap formulaire pages insert 
+
 
 ATTENTION faute de frappe dans connexion.php:
 "projetslaml" à la place de "projetslam"

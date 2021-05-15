@@ -2,24 +2,20 @@
 include'headerstock.php';
 include'connexionstock.php';
 
-if(isset($_POST['nomfournisseur'])){
-    $nomfournisseur = $_POST['nomfournisseur'];
-} 
-if(isset($_POST['adresse'])){
+if(isset($_POST['nom']) && isset($_POST['adresse']) && isset($_POST['telephone']) && isset($_POST['mail'])){
+    $nom = $_POST['nom'];
     $adresse = $_POST['adresse'];
-}
-if(isset($_POST['telephone'])){
     $telephone = $_POST['telephone'];
-}
-if(isset($_POST['mail'])){
-    $mail = $_POST['mail'];
+    $email = $_POST['mail'];
 }
 ?>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 <?php
 $deletefournisseur = $connexion->query("DELETE nomfournisseur, adresse, telephone, mail FROM fournisseur where nomfournisseur='.$nomfournisseur.'and adresse=.'$adresse and telephone=.'$telephone and mail=.'$mail");
 var_dump($deletefournisseur);
 ?>
+<head>
+    <title>supprimer fournisseur</title>
+</head>
 <form method="POST" action="" > <!--- onsubmit="return confirmation()" -->
     <div class="titreform"> 
         nom du fournisseur
