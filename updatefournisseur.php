@@ -1,5 +1,6 @@
 <?php
 include'headerstock.php';
+include'connexionstock.php';
 
 $nom = $_POST['nom'];
 $adresse = $_POST['adresse'];
@@ -7,13 +8,8 @@ $telephone = $_POST['telephone'];
 $email = $_POST['email'];
 
 
-if(!empty($_POST['nom'])AND !empty($_POST['adresse']) AND !empty($_POST['telephone']) AND !empty($_POST['email'])) {
     $insert = $connexion->prepare(" UPDATE fournisseur SET nomfournisseur , adresse,telephone, mail)");
-    $insert->execute(array($nom, $adresse, $telephone, $email));
     $message = "les données ont bien été enregistrées ! ";
-}
-else {$message = "Tous les champs doivent être complétés !";}
-
 
 ?>
 <head>
