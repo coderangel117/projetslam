@@ -9,8 +9,7 @@ $nouveauprenom = $_POST['nouveauprenom'];
 $nouveaunom= $_POST['nouveaunom'];
 
 
-$insert = $connexion->prepare('UPDATE client SET prenom=$nouveauprenom, nom=$nouveaunom where prenom=$ancienprenom'  );
-$message = "les données ont bien été enregistrées ! ";
+$updateclient = $connexion->query("UPDATE client SET prenom='.$nouveauprenom ', nom='.$nouveaunom ' where prenom='.$ancienprenom ', prenom='.$ancienprenom ");
 
 ?>
 <head>
