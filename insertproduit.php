@@ -1,6 +1,6 @@
 <?php
 include'connexionstock.php';
-include'header.php';
+include'headerstock.php';
 
 $nomproduit = $_POST['nomproduit'];
 $prixvente = $_POST['prixvente'];
