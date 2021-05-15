@@ -22,25 +22,26 @@ var_dump($deletefournisseur);
 ?>
 <form method="POST" action="" > <!--- onsubmit="return confirmation()" -->
     <div class="titreform"> 
-        nom du produit
+        nom du fournisseur
     </div>
     <input type="text" class="form-control" placeholder="saisissez le nom du fournisseur" id="nomfournisseur" name="nomfournisseur" value="<?php if(isset($nomfournisseur)) { echo $nomfournisseur; } ?>">
     <br>
     <div class="titreform">
-        prix de vente
+        adresse
     </div>
     <input type="text" class="form-control" placeholder="saisissez l'adresse du fournisseur" id="adresse" name="adresse" value="<?php if(isset($adresse)) { echo $adresse; } ?>">
     <br>
     
     <div class="titreform">
-        prix d'achat
+       telephone
 </div>
-    <input type="text" class="form-control" placeholder="saisissez le prix d'achat" id="telephone" name="telephone" value="<?php if(isset($telephone)) { echo $telephone; } ?>">
+    <input type="text" class="form-control" placeholder="saisissez le numero de telephone" id="telephone" name="telephone" value="<?php if(isset($telephone)) { echo $telephone; } ?>">
     <br>
 
     <div class="titreform">
-        quantite en stock 
-</div>
+    mail
+    
+    </div>
     <input type="text" class="form-control" placeholder="saisissez la mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>">
     <br>
     <button type="submit" class="btn btn-primary">Submit</button>

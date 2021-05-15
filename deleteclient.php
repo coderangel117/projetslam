@@ -11,6 +11,7 @@ if(isset($_POST['nom']) && isset($_POST['prenom'])){
 <?php
 $deleteclient = $connexion->query("DELETE prenom, nom FROM client where prenom='.$prenom.'and nom=.$nom");
 
+var_dump($deleteclient);
 ?>
 <form method="POST" action="" > <!--- onsubmit="return confirmation()" -->
     <div class="titreform"> 
