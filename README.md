@@ -51,3 +51,6 @@ FONCTIONNELS
 
 vardump=bool ca fonctionne pas 
 vardump=string=niquel
+
+# 16/05/21
+rajout id dans les tableaux pour faciliter les update et delete
