@@ -30,7 +30,7 @@ if(isset($_POST['forminscription'])) {
 
 ?>
 <head>
-   <title>inscription AU BON MARCHE</title>
+   <title>inscription A LA BONNE GESTION </title>
 </head>
 
 <body>
@@ -103,6 +103,6 @@ if(isset($_POST['forminscription'])) {
       ?>
    </div>
 </body>
-<?php 
+<?php
 include 'footer.php';
 ?>

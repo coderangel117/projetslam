@@ -26,7 +26,7 @@ if(isset($_POST['formconnexion'])) {
 ?>
 <html>
    <head>
-      <title>connexion AU BON MARCHE</title>
+      <title>connexion A LA BONNE GESTION</title>
       <meta charset="utf-8">
    </head>
    <body>

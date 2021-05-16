@@ -13,7 +13,7 @@ include 'connexionstock.php';
 
 $selectclient = $connexion->query('SELECT idclient, prenom, nom FROM client');
 ?>
-<div class="tableau" >
+<div class="collapse" >
 <?php
 echo '<table>
 
@@ -51,6 +51,7 @@ echo '<table>
 ?></table>
 
 </div>
+<br>
 <?php
 include 'footer.php';
 ?>
