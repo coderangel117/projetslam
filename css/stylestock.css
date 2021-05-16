@@ -90,7 +90,7 @@ nav > ul li:hover .sous{
     border-color: blue;
 }
 td{
-    
+    width:200px;
     border-color: black;
 }
 footer{

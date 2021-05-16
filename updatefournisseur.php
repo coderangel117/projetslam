@@ -2,7 +2,8 @@
 include'headerstock.php';
 include'connexionstock.php';
 
-if(isset($_POST['nom']) && isset($_POST['adresse']) && isset($_POST['telephone']) && isset($_POST['email'])){
+if(isset($_POST['nom']) && isset($_POST['adresse']) && isset($_POST['telephone']) && isset($_POST['email']) && isset($_POST['email'])){
+$id = $_POST['id'];
 $nom = $_POST['nom'];
 $adresse = $_POST['adresse'];
 $telephone = $_POST['telephone'];
@@ -10,15 +11,18 @@ $email = $_POST['email'];
 }
 
     
-$updatefournisseur = $connexion->query(" UPDATE fournisseur SET nomfournisseur , adresse,telephone, mail)");
+$updatefournisseur = $connexion->query('UPDATE fournisseur SET nomfournisseur=$nom , adresse=$adresse,telephone$=$telephone, mail=$email where idfournisseur=$id)');
 var_dump($updatefournisseur);
 ?>
 <head>
 <title>modifier fournisseur</title>
 
 </head>
-<form method="POST" acttion="">
+<form method="POST" action="">
 
+id du fournisseur 
+  <input type="text" class="form-control" placeholder="saisissez l'id' du fournisseur" id="id" name="id" value="<?php if(isset($id)) { echo $id; } ?>">
+<br>
 nomfournisseur 
   <input type="text" class="form-control" placeholder="saisissez le nom du fournisseur" id="nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>">
 <br>

@@ -13,7 +13,7 @@ include'connexionstock.php';
 
 <?php
  
-$selectproduit = $connexion->query('SELECT nomproduit, prixvente, prixachat, quantitestock FROM produits');
+$selectproduit = $connexion->query('SELECT idproduit, nomproduit, prixvente, prixachat, quantitestock FROM produits');
 var_dump($selectproduit);
 ?>
 <div class="collapse" >
@@ -21,6 +21,11 @@ var_dump($selectproduit);
     echo '<table>
 
         <tr>
+            <td>
+                <p>
+                 id du produit
+                </p>
+            </td>
             <td>
                 <p>
                     nom du produit
@@ -51,6 +56,7 @@ var_dump($selectproduit);
         <?php
         echo ('
         <tr>
+            <td>' . $tableau['idproduit'] . '</td>
             <td>' . $tableau['nomproduit'] . '</td>
             <td>' . $tableau['prixvente'] . '</td>
             <td>' . $tableau['prixachat'] .'</td>

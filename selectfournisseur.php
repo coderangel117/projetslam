@@ -16,7 +16,7 @@ if(isset($_POST['search'])){
 $searchup = $connexion->query('SELECT * from fournisseur where ');
 
 
-$selectfournisseur = $connexion->query('SELECT nomfournisseur, adresse, telephone, mail FROM fournisseur');
+$selectfournisseur = $connexion->query('SELECT idfournisseur, nomfournisseur, adresse, telephone, mail FROM fournisseur');
 
 ?>
 <div class="tableau" >
@@ -24,6 +24,11 @@ $selectfournisseur = $connexion->query('SELECT nomfournisseur, adresse, telephon
 echo '<table>
 
     <tr>
+        <td>
+            <p>
+                id du fournisseur
+            </p>
+        </td>
         <td>
             <p>
                 nom du fournisseur 
@@ -52,6 +57,7 @@ echo '<table>
     <?php
     echo ('
     <tr>
+        <td>' . $tableau['idfournisseur'] . '</td>
         <td>' . $tableau['nomfournisseur'] . '</td>
         <td>' . $tableau['adresse']. '</td>
         <td>' . $tableau['telephone']. '</td>

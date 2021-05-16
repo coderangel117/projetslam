@@ -11,13 +11,18 @@ include 'connexionstock.php';
 <?php
  
 
-$selectclient = $connexion->query('SELECT prenom, nom FROM client');
+$selectclient = $connexion->query('SELECT idclient, prenom, nom FROM client');
 ?>
 <div class="tableau" >
 <?php
 echo '<table>
 
     <tr>
+    <td>
+        <p>
+            idclient
+        </p>
+    </td>
         <td>
             <p>
                 prenom
@@ -37,6 +42,7 @@ echo '<table>
     <?php
     echo ('
     <tr>
+    <td>' . $tableau['idclient'] .'</td>
         <td>' . $tableau['prenom'] .'</td>
         <td>' . $tableau['nom']. '</td>
     </tr>
