@@ -63,7 +63,7 @@ include 'headerstock.php';
 		</li>
 	</ul>
 </nav>
-
+<br><br><br><br><br><br>
 <H1>
 
 Bienvenue sur le site internet" A LA BONNE GESTION" si vous vous trouvez sur cette page, c'est que vous êtes connecté
