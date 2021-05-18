@@ -10,7 +10,7 @@ $quantite = $_POST['quantite'];
 
 
 if(!empty($_POST['nomproduit'])AND !empty($_POST['prixvente']) AND !empty($_POST['prixachat']) AND !empty($_POST['quantitestock'])) {
-    $insert = $connexion->prepare("INSERT INTO produits (nomproduit, prixvente, prixachat, quantitestock) VALUES(?, ?, ?, ?)");
+    $insert = $connexion->prepare('INSERT INTO produits (nomproduit, prixvente, prixachat, quantitestock) VALUES(?, ?, ?, ?)');
     $insert->execute(array($nomproduit, $prixvente, $prixachat, $quantite));
     $message = "les données ont bien été enregistrées ! "; 
 }
