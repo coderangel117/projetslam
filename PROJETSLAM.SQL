@@ -1,200 +1,196 @@
-DROP DATABASE IF EXISTS projetslam;
+-- phpMyAdmin SQL Dump
+-- version 4.7.4
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  mer. 19 mai 2021 à 08:04
+-- Version du serveur :  5.7.19
+-- Version de PHP :  7.1.9
 
-CREATE DATABASE IF NOT EXISTS projetslam;
-USE projetslam;
-# -----------------------------------------------------------------------------
-#       TABLE : FOURNISSEUR
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS FOURNISSEUR
- (
-   IDFOURNISSEUR INTEGER(2) NOT NULL  ,
-   NOMFOURNISSEUR CHAR(32) NULL  ,
-   ADRESSE CHAR(32) NULL  ,
-   TELEPHONE INTEGER(2) NULL  ,
-   MAIL CHAR(32) NULL  
-   , PRIMARY KEY (IDFOURNISSEUR) 
- ) 
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       TABLE : COMMANDE
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS COMMANDE
- (
-   IDCOMMANDE INTEGER(2) NOT NULL AUTO_INCREMENT ,
-   IDFOURNISSEUR CHAR(32) NOT NULL  ,
-   DATECOMMANDE DATE NULL  ,
-   DATELIVRAISON DATE NULL  ,
-   PRIXCOMMANDE INTEGER(2) NULL  
-   , PRIMARY KEY (IDCOMMANDE) 
- ) 
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE COMMANDE
-# -----------------------------------------------------------------------------
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-CREATE  INDEX I_FK_COMMANDE_FOURNISSEUR
-     ON COMMANDE (IDFOURNISSEUR ASC);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-# -----------------------------------------------------------------------------
-#       TABLE : COMMANDECLIENT
-# -----------------------------------------------------------------------------
+--
+-- Base de données :  `projetslam`
+--
 
-CREATE TABLE IF NOT EXISTS COMMANDECLIENT
- (
-   IDFACTURE INTEGER(2) NOT NULL AUTO_INCREMENT ,
-   IDCLIENT CHAR(32) NOT NULL  ,
-   DATEFACTURE DATE NULL  
-   , PRIMARY KEY (IDFACTURE) 
- ) 
- comment = "";
+-- --------------------------------------------------------
 
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE COMMANDECLIENT
-# -----------------------------------------------------------------------------
+--
+-- Structure de la table `client`
+--
 
-
-CREATE  INDEX I_FK_COMMANDECLIENT_CLIENT
-     ON COMMANDECLIENT (IDCLIENT ASC);
-
-# -----------------------------------------------------------------------------
-#       TABLE : CLIENT
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS CLIENT
- (
-   IDCLIENT INTEGER(2) NOT NULL  ,
-   PRENOM CHAR(32) NULL  ,
-   NOM CHAR(32) NULL  
-   , PRIMARY KEY (IDCLIENT) 
- ) 
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       TABLE : PRODUITS
-# -----------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS PRODUITS
- (
-   IDPRODUIT INTEGER(2) NOT NULL  ,
-   IDRAYON CHAR(32) NOT NULL  ,
-   NOMPRODUIT CHAR(32) NULL  ,
-   PRIXVENTE INTEGER(2) NULL  ,
-   PRIXACHAT INTEGER(2) NULL  ,
-   QUANTIT�STOCK INTEGER(2) NULL  
-   , PRIMARY KEY (IDPRODUIT) 
- ) 
- comment = "";
-
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE PRODUITS
-# -----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `client`;
+CREATE TABLE IF NOT EXISTS `client` (
+  `IDCLIENT` int(2) NOT NULL AUTO_INCREMENT,
+  `PRENOM` char(32) DEFAULT NULL,
+  `NOM` char(32) DEFAULT NULL,
+  PRIMARY KEY (`IDCLIENT`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 
-CREATE  INDEX I_FK_PRODUITS_RAYON
-     ON PRODUITS (IDRAYON ASC);
+-- Structure de la table `commande`
+--
 
-# -----------------------------------------------------------------------------
-#       TABLE : RAYON
-# -----------------------------------------------------------------------------
+DROP TABLE IF EXISTS `commande`;
+CREATE TABLE IF NOT EXISTS `commande` (
+  `IDCOMMANDE` int(2) NOT NULL AUTO_INCREMENT,
+  `IDFOURNISSEUR` int(2) NOT NULL,
+  `DATECOMMANDE` date DEFAULT NULL,
+  `DATELIVRAISON` date DEFAULT NULL,
+  `PRIXCOMMANDE` int(2) DEFAULT NULL,
+  PRIMARY KEY (`IDCOMMANDE`),
+  KEY `I_FK_COMMANDE_FOURNISSEUR` (`IDFOURNISSEUR`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS RAYON
- (
-   IDRAYON INTEGER(2) NOT NULL  ,
-   NOMRAYON CHAR(32) NULL  
-   , PRIMARY KEY (IDRAYON) 
- ) 
- comment = "";
+-- --------------------------------------------------------
 
-# -----------------------------------------------------------------------------
-#       TABLE : FACTURATION
-# -----------------------------------------------------------------------------
+--
+-- Structure de la table `commandeclient`
+--
 
-CREATE TABLE IF NOT EXISTS FACTURATION
- (
-   IDFACTURE INTEGER(2)< NOT NULL  ,
-   IDPRODUIT CHAR(32) NOT NULL  ,
-   QUANTIT�PRODUITS INTEGER(2) NULL  
-   , PRIMARY KEY (IDFACTURE,IDPRODUIT) 
- ) 
- comment = "";
+DROP TABLE IF EXISTS `commandeclient`;
+CREATE TABLE IF NOT EXISTS `commandeclient` (
+  `IDFACTURE` int(2) NOT NULL AUTO_INCREMENT,
+  `IDCLIENT` int(2) NOT NULL,
+  `DATEFACTURE` date DEFAULT NULL,
+  PRIMARY KEY (`IDFACTURE`),
+  KEY `I_FK_COMMANDECLIENT_CLIENT` (`IDCLIENT`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE FACTURATION
-# -----------------------------------------------------------------------------
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `compose`
+--
 
-CREATE  INDEX I_FK_FACTURATION_COMMANDECLIENT
-     ON FACTURATION (IDFACTURE ASC);
+DROP TABLE IF EXISTS `compose`;
+CREATE TABLE IF NOT EXISTS `compose` (
+  `IDCOMMANDE` int(2) NOT NULL AUTO_INCREMENT,
+  `IDPRODUIT` int(2) NOT NULL,
+  `QUANTIT?PRODUIT` int(2) DEFAULT NULL,
+  PRIMARY KEY (`IDCOMMANDE`,`IDPRODUIT`),
+  KEY `I_FK_COMPOSE_COMMANDE` (`IDCOMMANDE`),
+  KEY `I_FK_COMPOSE_PRODUITS` (`IDPRODUIT`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE  INDEX I_FK_FACTURATION_PRODUITS
-     ON FACTURATION (IDPRODUIT ASC);
+-- --------------------------------------------------------
 
-# -----------------------------------------------------------------------------
-#       TABLE : COMPOSE
-# -----------------------------------------------------------------------------
+--
+-- Structure de la table `facturation`
+--
 
-CREATE TABLE IF NOT EXISTS COMPOSE
- (
-   IDCOMMANDE INTEGER(2) NOT NULL  ,
-   IDPRODUIT CHAR(32) NOT NULL  ,
-   QUANTIT�PRODUIT INTEGER(2) NULL  
-   , PRIMARY KEY (IDCOMMANDE,IDPRODUIT) 
- ) 
- comment = "";
+DROP TABLE IF EXISTS `facturation`;
+CREATE TABLE IF NOT EXISTS `facturation` (
+  `IDFACTURE` int(2) NOT NULL AUTO_INCREMENT,
+  `IDPRODUIT` int(2) NOT NULL,
+  `QUANTIT?PRODUITS` int(2) DEFAULT NULL,
+  PRIMARY KEY (`IDFACTURE`,`IDPRODUIT`),
+  KEY `I_FK_FACTURATION_COMMANDECLIENT` (`IDFACTURE`),
+  KEY `I_FK_FACTURATION_PRODUITS` (`IDPRODUIT`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-# -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE COMPOSE
-# -----------------------------------------------------------------------------
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `fournisseur`
+--
 
-CREATE  INDEX I_FK_COMPOSE_COMMANDE
-     ON COMPOSE (IDCOMMANDE ASC);
+DROP TABLE IF EXISTS `fournisseur`;
+CREATE TABLE IF NOT EXISTS `fournisseur` (
+  `IDFOURNISSEUR` int(2) NOT NULL AUTO_INCREMENT,
+  `NOMFOURNISSEUR` char(32) DEFAULT NULL,
+  `ADRESSE` char(32) DEFAULT NULL,
+  `TELEPHONE` char(32) DEFAULT NULL,
+  `MAIL` char(32) DEFAULT NULL,
+  PRIMARY KEY (`IDFOURNISSEUR`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
-CREATE  INDEX I_FK_COMPOSE_PRODUITS
-     ON COMPOSE (IDPRODUIT ASC);
+--
+-- Déchargement des données de la table `fournisseur`
+--
 
+INSERT INTO `fournisseur` (`IDFOURNISSEUR`, `NOMFOURNISSEUR`, `ADRESSE`, `TELEPHONE`, `MAIL`) VALUES
+(1, 'NOM', 'adresse', '\'+33 06 15 89 23 45', 'mail@mail.fr'),
+(2, 'NOM', 'adresse', '\'+33 06 15 89 23 45', 'mail@mail.fr'),
+(3, 'NOM', 'adresse', '\'+33 06 15 89 23 45', 'mail@mail.fr');
 
-# -----------------------------------------------------------------------------
-#       CREATION DES REFERENCES DE TABLE
-# -----------------------------------------------------------------------------
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `produits`
+--
 
-ALTER TABLE COMMANDE 
-  ADD FOREIGN KEY FK_COMMANDE_FOURNISSEUR (IDFOURNISSEUR)
-      REFERENCES FOURNISSEUR (IDFOURNISSEUR) ;
+DROP TABLE IF EXISTS `produits`;
+CREATE TABLE IF NOT EXISTS `produits` (
+  `IDPRODUIT` int(2) NOT NULL AUTO_INCREMENT,
+  `IDRAYON` int(2) NOT NULL,
+  `NOMPRODUIT` char(32) DEFAULT NULL,
+  `PRIXVENTE` int(2) DEFAULT NULL,
+  `PRIXACHAT` int(2) DEFAULT NULL,
+  `QUANTIT?STOCK` int(2) DEFAULT NULL,
+  PRIMARY KEY (`IDPRODUIT`),
+  KEY `I_FK_PRODUITS_RAYON` (`IDRAYON`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
 
-ALTER TABLE COMMANDECLIENT 
-  ADD FOREIGN KEY FK_COMMANDECLIENT_CLIENT (IDCLIENT)
-      REFERENCES CLIENT (IDCLIENT) ;
+--
+-- Structure de la table `rayon`
+--
 
+DROP TABLE IF EXISTS `rayon`;
+CREATE TABLE IF NOT EXISTS `rayon` (
+  `IDRAYON` int(2) NOT NULL AUTO_INCREMENT,
+  `NOMRAYON` char(32) DEFAULT NULL,
+  PRIMARY KEY (`IDRAYON`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-ALTER TABLE PRODUITS 
-  ADD FOREIGN KEY FK_PRODUITS_RAYON (IDRAYON)
-      REFERENCES RAYON (IDRAYON) ;
+--
+-- Contraintes pour les tables déchargées
+--
 
+--
+-- Contraintes pour la table `commande`
+--
+ALTER TABLE `commande`
+  ADD CONSTRAINT `commande_ibfk_1` FOREIGN KEY (`IDFOURNISSEUR`) REFERENCES `fournisseur` (`IDFOURNISSEUR`);
 
-ALTER TABLE FACTURATION 
-  ADD FOREIGN KEY FK_FACTURATION_COMMANDECLIENT (IDFACTURE)
-      REFERENCES COMMANDECLIENT (IDFACTURE) ;
+--
+-- Contraintes pour la table `commandeclient`
+--
+ALTER TABLE `commandeclient`
+  ADD CONSTRAINT `commandeclient_ibfk_1` FOREIGN KEY (`IDCLIENT`) REFERENCES `client` (`IDCLIENT`);
 
+--
+-- Contraintes pour la table `compose`
+--
+ALTER TABLE `compose`
+  ADD CONSTRAINT `compose_ibfk_1` FOREIGN KEY (`IDCOMMANDE`) REFERENCES `commande` (`IDCOMMANDE`),
+  ADD CONSTRAINT `compose_ibfk_2` FOREIGN KEY (`IDPRODUIT`) REFERENCES `produits` (`IDPRODUIT`);
 
-ALTER TABLE FACTURATION 
-  ADD FOREIGN KEY FK_FACTURATION_PRODUITS (IDPRODUIT)
-      REFERENCES PRODUITS (IDPRODUIT) ;
+--
+-- Contraintes pour la table `facturation`
+--
+ALTER TABLE `facturation`
+  ADD CONSTRAINT `facturation_ibfk_1` FOREIGN KEY (`IDFACTURE`) REFERENCES `commandeclient` (`IDFACTURE`),
+  ADD CONSTRAINT `facturation_ibfk_2` FOREIGN KEY (`IDPRODUIT`) REFERENCES `produits` (`IDPRODUIT`);
 
+--
+-- Contraintes pour la table `produits`
+--
+ALTER TABLE `produits`
+  ADD CONSTRAINT `produits_ibfk_1` FOREIGN KEY (`IDRAYON`) REFERENCES `rayon` (`IDRAYON`);
+COMMIT;
 
-ALTER TABLE COMPOSE 
-  ADD FOREIGN KEY FK_COMPOSE_COMMANDE (IDCOMMANDE)
-      REFERENCES COMMANDE (IDCOMMANDE) ;
-
-
-ALTER TABLE COMPOSE 
-  ADD FOREIGN KEY FK_COMPOSE_PRODUITS (IDPRODUIT)
-      REFERENCES PRODUITS (IDPRODUIT) ;
-
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

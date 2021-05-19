@@ -12,6 +12,7 @@ include 'connexionstock.php';
  
 
 $selectclient = $connexion->query('SELECT idclient, prenom, nom FROM client');
+var_dump($selectclient);
 ?>
 <div class="collapse" >
 <?php
