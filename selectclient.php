@@ -1,6 +1,6 @@
 <?php
-include 'headerstock.php';
-include 'connexionstock.php';
+include 'header.php';
+include 'connexion_bdd.php';
 ?>
 
 <h1>Bases de données MySQL</h1>  

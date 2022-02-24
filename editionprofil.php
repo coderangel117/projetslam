@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'connexion.php';
+include 'connexion_bdd.php';
 include 'header.php';
 
 
@@ -60,7 +60,7 @@ if(isset($_SESSION['id'])) {
 <?php   
 }
 else {
-   header("Location: connexion.php");
+//   header("Location: connexion_bdd.php");
 }
 include 'footer.php';
 ?>

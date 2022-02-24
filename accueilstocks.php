@@ -1,6 +1,6 @@
 <?php 
-include 'connexionstock.php';
-include 'headerstock.php';
+include 'connexion_bdd.php';
+include 'header.php';
 ?>
 
 <head>
@@ -11,21 +11,13 @@ include 'headerstock.php';
 <nav>
 	<ul>
 		<li class="deroulant">
-      <a href="#">actions sur les produits &ensp;</a>
-			<ul class="sous">
-        <li>
-          <a href="selectproduit.php" target="_blank" rel="noopener noreferrer">liste des produits déjà enregistrés</a>
-        </li>
-        <li>
-          <a href="insertproduit.php" target="_blank" rel="noopener noreferrer">inserer de nouveaux produits</a>
-        </li>
-        <li>
-          <a href="updateproduit.php" target="_blank" rel="noopener noreferrer">modifer des produits</a>
-        </li>
-        <li>
-          <a href="deleteproduit.php" target="_blank" rel="noopener noreferrer">supprimer des produits</a>
-        </li>
-			</ul>
+        <a href="#">actions sur les produits &ensp;</a>
+	  		<ul class="sous">
+            <li> <a href="selectproduit.php" target="blank" >liste des produits déjà enregistrés</a> </li>
+            <li> <a href="insertproduit.php" target="blank" >inserer de nouveaux produits</a> </li>
+            <li> <a href="updateproduit.php" target="blank" >modifer des produits</a> </li>
+            <li> <a href="deleteproduit.php" target="blank" >supprimer des produits</a></li>
+		    	</ul>
 		</li>
     <li class="deroulant">
       <a href="#">actions sur les clients &ensp;</a>

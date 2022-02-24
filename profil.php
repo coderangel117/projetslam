@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'connexion.php';
+include 'connexion_bdd.php';
 include 'header.php';
 
 if(isset($_GET['id']) AND $_GET['id'] > 0) {

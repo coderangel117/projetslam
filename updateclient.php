@@ -1,6 +1,6 @@
 <?php
-include'connexionstock.php';
-include'headerstock.php';
+include 'connexion_bdd.php';
+include 'header.php';
 
 if(isset($_POST['ancienprenom']) && isset($_POST['anciennom']) && isset($_POST['nouveauprenom']) && isset($_POST['nouveaunom'])){
 $ancienprenom = $_POST['ancienprenom'];

@@ -1,5 +1,5 @@
 <?php
-include 'connexion.php';
+include 'connexion_bdd.php';
 session_start();
 $_SESSION = array();
 session_destroy();

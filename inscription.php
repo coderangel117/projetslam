@@ -1,33 +1,23 @@
 <?php
-include 'connexion.php';
+include 'connexion_bdd.php';
 include 'header.php';
 
-if(isset($_POST['forminscription'])) {
-
-   $nom = $_POST['nom'];
-   $prenom = $_POST['prenom'];
-   $login = $_POST['login'];
-   $mdp = sha1($_POST['mdp']);
-   $mdp2 = sha1($_POST['mdp2']);
-
-   if(!empty($_POST['login'])AND !empty($_POST['mdp']) AND !empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mdp2'])) {
-      $mdplength = strlen($mdp);
-      if($mdplength>2){
-         if($mdp == $mdp2) {
-            try{
-
-            $insert = $connexion->prepare("INSERT INTO utilisateurs (nom, prenom, identifiant, motdepasse) VALUES(?, ?, ?, ?)");
-            $insert->execute(array($nom, $prenom, $login, $mdp));
-            }catch(Exception $e){
-               echo('pb insert');
-            }
-
-            $message = "Votre compte a bien été créé ! <a href=\"connexionutilisateur.php\">Me connecter</a>";
-         }else {$message = "Vos mots de passes ne correspondent pas !";}
-      }else{$message = "mot de passe trop  petit pour être sécurisé";}
-   }else {$message = "Tous les champs doivent être complétés !";}
+if (isset($_POST['forminscription'])) {
+    $prenom = htmlspecialchars($_POST['prenom']);
+    $nom = htmlspecialchars($_POST['nom']);
+    $username = htmlspecialchars($_POST['username']);
+    $mdp1 = password_hash($_POST['mdp1'], PASSWORD_BCRYPT);
+    if (!empty($prenom and $nom and $username and $mdp1)) {
+        if ($_POST['mdp1'] == $_POST['mdp2']) {
+            $parameters = [$nom, $prenom, $username, $mdp1];
+            $insert = $connexion->prepare( "INSERT INTO projetslam.utilisateur (nom, prenom,  username, password) VALUES( ?, ?,?, ?)");
+            $insert->execute([$nom ,$prenom , $username,$mdp1 ])  ;
+            header('Location:connexionutilisateur.php');
+        } else echo("les mots de passe doivent etre les mêmes !! ");
+    } else {
+        echo("Tous les champs sont obligatoires !! ");
+    }
 }
-
 ?>
 <head>
    <title>inscription A LA BONNE GESTION </title>
@@ -58,24 +48,22 @@ if(isset($_POST['forminscription'])) {
                </td>
             </tr>
 
-            <tr>
-               <td align="right">
-                  <label for="login">Entrée du login :</label>
-               </td>
-               <td>
-                  <input type="text" placeholder="choisissez votre login" id="login" name="login" value="<?php if(isset($login)) { echo $login; } ?>" />
-               </td>
-            </tr>
-
-
-            <tr>
-               <td align="right">
-                  <label for="mdp">Mot de passe :</label>
-               </td>
-               <td>
-                  <input type="password" placeholder="Votre mot de passe" id="mdp" name="mdp" />
-               </td>
-            </tr>
+             <tr>
+                 <td align="right">
+                     <label for="username">username</label>
+                 </td>
+                 <td>
+                     <input type="text" name="username" id="username" value="<?php if(isset($username)){echo$username;} ?>">
+                 </td>
+             </tr>
+             <tr>
+                 <td align="right">
+                     <label for="mdp1">rentrez votre mot de passe</label>
+                 </td>
+                 <td>
+                     <input type="password" name="mdp1" id="mdp1">
+                 </td>
+             </tr>
 
 
             <tr>

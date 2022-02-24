@@ -1,6 +1,6 @@
 <?php
-include'headerstock.php';
-include'connexionstock.php';
+include 'header.php';
+include 'connexion_bdd.php';
 
 if(isset($_POST['nom']) && isset($_POST['adresse']) && isset($_POST['telephone']) && isset($_POST['mail'])){
     $nom = $_POST['nom'];

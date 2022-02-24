@@ -1,6 +1,6 @@
 <?php
-include'connexionstock.php';
-include'headerstock.php';
+include 'connexion_bdd.php';
+include 'header.php';
 if(isset($_POST['nomproduit']) && isset($_POST['prixvente']) && isset($_POST['prixachat']) && isset($_POST['quantite'])){
 $nomproduit = $_POST['nomproduit'];
 $prixvente = $_POST['prixvente'];
