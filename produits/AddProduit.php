@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ .'/../element/header.php';
-require_once __DIR__ .'/../connexion_bdd.php';
+require_once __DIR__ .'/../Connexion.class.php';
 if(isset($_POST['nomproduit']) && isset($_POST['prixvente']) && isset($_POST['prixachat']) && isset($_POST['quantite'])){
 $nomproduit = $_POST['nomproduit'];
 $prixvente = $_POST['prixvente'];
