@@ -1,6 +1,6 @@
 <?php
-require_once 'connexion_bdd.php';
-require_once 'element/header.php';
+require_once __DIR__ .'/../element/header.php';
+require_once __DIR__ .'/../connexion_bdd.php';
 if(isset($_POST['ancienprenom']) && isset($_POST['anciennom']) && isset($_POST['nouveauprenom']) && isset($_POST['nouveaunom'])){
 $ancienprenom = $_POST['ancienprenom'];
 $anciennom = $_POST['anciennom'];
@@ -51,4 +51,5 @@ if(isset($message)){
 </form>
 
 <?php
-require_once 'element/footer.php'; ?>
+require_once __DIR__ .'/../element/footer.php';
+?>

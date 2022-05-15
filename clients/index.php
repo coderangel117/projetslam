@@ -1,6 +1,6 @@
 <?php
-require_once 'element/header.php';
-require_once 'connexion_bdd.php';
+require_once __DIR__ .'/../element/header.php';
+require_once __DIR__ .'/../connexion_bdd.php';
 ?>
 
 <h1>Bases de données MySQL</h1>  
@@ -54,4 +54,5 @@ echo '<table>
 </div>
 <br>
 <?php
-require_once 'element/footer.php'; ?>
+require_once __DIR__ .'/../element/footer.php';
+?>
