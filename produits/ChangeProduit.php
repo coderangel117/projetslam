@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ .'/../element/header.php';
-require_once __DIR__ .'/../connexion_bdd.php';
+require_once __DIR__ .'/../Connexion.class.php';
 
 if(isset($_POST['idproduit']) && isset($_POST['ancienprixv']) && isset($_POST['nouveaunom']) && isset($_POST['nouveauprixv']) && isset($_POST['nouveauprixa']) && isset($_POST['nouvellequantite']) ){
 $idproduit = $_POST['idproduit'];
