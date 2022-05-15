@@ -1,6 +1,6 @@
 <?php
-require_once 'element/header.php';
-require_once 'connexion_bdd.php';
+require_once __DIR__ .'/../element/header.php';
+require_once __DIR__ .'/../connexion_bdd.php';
 
 if(isset($_POST['nomproduit']) && isset($_POST['prixvente']) && isset($_POST['prixachat']) && isset($_POST['quantitestock'])){
     $nomproduit = $_POST['nomproduit'];
@@ -48,4 +48,5 @@ var_dump($deleteproduit);
 
 <br>
     <?php
-require_once 'element/footer.php'; ?>
+require_once __DIR__ .'/../element/footer.php';
+?>
