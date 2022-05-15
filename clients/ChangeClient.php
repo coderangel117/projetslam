@@ -1,14 +1,14 @@
 <?php
 require_once __DIR__ .'/../element/header.php';
-require_once __DIR__ .'/../connexion_bdd.php';
-if(isset($_POST['ancienprenom']) && isset($_POST['anciennom']) && isset($_POST['nouveauprenom']) && isset($_POST['nouveaunom'])){
-$ancienprenom = $_POST['ancienprenom'];
-$anciennom = $_POST['anciennom'];
-$nouveauprenom = $_POST['nouveauprenom'];
-$nouveaunom= $_POST['nouveaunom'];
+require_once __DIR__ .'/../Connexion.class.php';
+if(isset($_POST['Prenom']) && isset($_POST['Nom'])){
+$Prenom =  htmlspecialchars($_POST['ancienprenom']);
+$Nom = htmlspecialchars($_POST['anciennom']);
+$IdUser = htmlspecialchars($_GET['Id']);
 }
-
-$updateclient = $connexion->query('UPDATE client SET prenom=$nouveauprenom, nom=$nouveaunom where prenom=$ancienprenom,  prenom=$ancienprenom');
+$parameters = [ $Prenom ,$Nom, $IdUser];
+$sql = 'UPDATE projetslam.client SET prenom= ?, nom= ? where IdClient = ?';
+$updateclient = Query($sql, $parameters);
 var_dump($updateclient);
 
 ?>
@@ -20,31 +20,23 @@ var_dump($updateclient);
 <table>
     <tr>
         <td>
-            prenom du client a remplacer<input type="text"  placeholder="saisissez le nom du produit à remplacer "  id="ancienprenom" name="ancienprenom" value="<?php if(isset($ancienprenom)) { echo $ancienprenom; } ?>">
+             <label for="Prenom">
+                Prenom du client
+            </label><input type="text" placeholder="prenom du client " id="Prenom" name="Prenom" value="<?php if(isset($Prenom)) { echo $Prenom; } ?>">
             <br>
         </td>
         <td>
-        nouveau prenom du client
-        <input type="text"  placeholder="saisissez le nom du produit choisi"  id="nouveaunom" name="nouveaunom" value="<?php if(isset($nouveaunom)) { echo $nouveaunom; } ?>">
-        <br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-       nom a remplacer
-        <input type="text"  placeholder="saisissez le nom du client du produit à remplacer" id="anciennom" name="anciennom" value="<?php if(isset($anciennom)) { echo $anciennom; } ?>">
-        <br> 
-        </td>
-        <td>
-        nouveau nom du client
-        <input type="text"  placeholder="saisissez le nom du client du produit choisi" id="nouveaunom" name="nouveaunom" value="<?php if(isset($nouveaunom)) { echo $nouveaunom; } ?>">
+            <label for="Nom">
+                Nom du client
+            </label><input type="text" placeholder=" nom du client" id="Nom" name="nouveaunom" value="<?php if(isset($Nom)) { echo $Nom; } ?>">
         <br>
         </td>
     </tr>
 </table>
 <button type="submit" class="btn btn-primary">Submit</button>
 <?php
-if(isset($message)){
+if(isset($message))
+{
     echo($message);
 }
 ?>

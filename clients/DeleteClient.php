@@ -1,44 +1,37 @@
 <?php
 require_once __DIR__ .'/../element/header.php';
-require_once __DIR__ .'/../connexion_bdd.php';
+require_once __DIR__ .'/../Connexion.class.php';
+
 if(isset($_POST['prenom']) && isset($_POST['nom'])){
-$nom = $_POST['prenom'];
-$prenom = $_POST['nom'];
+    $nom = $_POST['prenom'];
+    $prenom = $_POST['nom'];
 }
+?>
+<?php
+$deleteclient = $connexion->query('DELETE prenom, nom FROM client where prenom=$prenomand nom=$nom');
 
-
-
-if(!empty($_POST['nom'])AND !empty($_POST['prenom'])) {
-    $insert = $connexion->prepare("INSERT INTO client (prenom, nom) VALUES(?,?)");
-    $insert->execute(array($prenom, $nom, ));
-    $message = "les données ont bien été enregistrées ! ";
-}
-else {$message = "Tous les champs doivent être complétés !";}
+var_dump($deleteclient);
 ?>
 <head>
-<title>client</title>
-
+    <title>
+        supprimer client
+    </title>
 </head>
-<form method="POST" acttion="">
+<form method="POST" action="" > <!--- onsubmit="return confirmation()" -->
     <div class="titreform"> 
         prenom client 
     </div>
     <input type="text" class="form-control" placeholder="saisissez le prenom du client" id="prenom" name="prenom" value="<?php if(isset($prenom)) { echo $prenom; } ?>">
-
+    <br>
     <div class="titreform">
         nom client
     </div>
     <input type="text" class="form-control" placeholder="saisissez le nom du client" id="nom" name="nom" value="<?php if(isset($nom)) { echo $nom; } ?>">
     <br>
 
-    <br>
     <button type="submit" class="btn btn-primary">Submit</button>
+
+<br>
     <?php
-if(isset($message)){
-    echo($message);
-}
-?>
-</form>
-<?php
 require_once __DIR__ .'/../element/footer.php';
 ?>

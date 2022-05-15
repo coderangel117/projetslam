@@ -1,6 +1,11 @@
 <?php
-require_once 'connexion_bdd.php';
-require_once 'element/header.php';
+session_start();
+var_dump($_SESSION);
+require_once __DIR__ .'/Connexion.class.php';
+require_once __DIR__ .'/element/header.php';
+require_once __DIR__ .'/functions/sql.php';
+
+
 if (isset($_POST['forminscription'])) {
     $prenom = htmlspecialchars($_POST['prenom']);
     $nom = htmlspecialchars($_POST['nom']);
@@ -9,9 +14,9 @@ if (isset($_POST['forminscription'])) {
     if (!empty($prenom and $nom and $username and $mdp1)) {
         if ($_POST['mdp1'] == $_POST['mdp2']) {
             $parameters = [$nom, $prenom, $username, $mdp1];
-            $insert = $connexion->prepare( "INSERT INTO projetslam.utilisateur (nom, prenom,  username, password) VALUES( ?, ?,?, ?)");
-            $insert->execute([$nom ,$prenom , $username,$mdp1 ])  ;
-            header('Location:connexionutilisateur.php');
+            $sql = "INSERT INTO projetslam.utilisateur (Nom, Prenom, Username, Password) VALUES( ?, ?,?, ?)";
+            $insert = Request($sql, $parameters, "insert")  ;
+            header('Location:menu.php');
         } else echo("les mots de passe doivent etre les mêmes !! ");
     } else {
         echo("Tous les champs sont obligatoires !! ");
