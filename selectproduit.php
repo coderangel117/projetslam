@@ -1,6 +1,6 @@
 <?php
-include 'header.php';
-include 'connexion_bdd.php';
+require_once 'element/header.php';
+require_once 'connexion_bdd.php';
 ?>
 <head>
     <link rel="stylesheet" href="stylestock.css">
@@ -72,5 +72,5 @@ var_dump($selectproduit);
 
 </div>
 <?php
-include 'footer.php';
+require_once 'element/footer.php';
 ?>
