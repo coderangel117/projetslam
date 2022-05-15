@@ -1,7 +1,7 @@
 <?php
 session_start();
-include 'connexion_bdd.php';
-include 'header.php';
+require_once 'connexion_bdd.php';
+require_once 'element/header.php';
 
 if(isset($_GET['id']) AND $_GET['id'] > 0) {
    $getid = intval($_GET['id']);
@@ -41,5 +41,4 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
 ?>
 
 <?php
-include 'footer.php';
-?>
+require_once 'element/footer.php'; ?>
