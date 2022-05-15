@@ -4,10 +4,10 @@ require_once __DIR__ . '/../functions/sql.php';
 require_once __DIR__ . '/../Connexion.class.php';
 ?>
 
-<h1>Bases de données MySQL</h1>  
-<div class="search">
-<input type="search" name="search" id="search"  placeholder="search" value="search">
-</div>
+    <h1>Bases de données MySQL</h1>
+    <div class="search">
+        <input type="search" name="search" id="search" placeholder="search" value="search">
+    </div>
 
 <?php
  
