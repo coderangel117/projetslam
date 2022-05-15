@@ -6,4 +6,7 @@ require_once 'element/header.php';
     <title>accueil A LA BONNE GESTION </title>
 </head>
 <body>
+<a href="accesbdd.php"> test access bdd</a>
 </body>
+<?php
+require_once 'element/footer.php';
