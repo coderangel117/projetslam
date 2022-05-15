@@ -1,6 +1,12 @@
 .membres {
     text-align: right;
 }
+.titre
+{
+    text-align: center;
+    background-color:blue;
+    color: white;
+}
 
 .flex-items__title { /* "Gabriel PERINO" */
     display: block;
@@ -43,6 +49,7 @@ nav ul {
 }
 
 nav ul li {
+    list-style-type: none;
     float: left;
     width: 33%;
     text-align: center;
