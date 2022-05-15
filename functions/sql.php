@@ -11,7 +11,6 @@ function Query(string $sql, array $parameters =[], string $type = "select")
     if (isset($_SESSION) && !empty($_SESSION)) {
             $connexion_admin = new Connexion("root", "");
             $connexion = $connexion_admin->getConnexion();
-            var_dump($connexion);
         if ($type !== "select") {
             $requete = $connexion->prepare($sql);
             return $requete->execute($parameters);
