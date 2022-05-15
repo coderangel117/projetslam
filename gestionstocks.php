@@ -1,5 +1,5 @@
 <?php
-require_once 'connexion_bdd.php';
+require_once __DIR__ .'/Connexion.class.php';
 require_once 'element/header.php'; ?>
 
     <!DOCTYPE html>
