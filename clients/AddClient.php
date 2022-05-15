@@ -1,9 +1,10 @@
 <?php
-require_once __DIR__ .'/../element/header.php';
-require_once __DIR__ .'/../connexion_bdd.php';
-if(isset($_POST['prenom']) && isset($_POST['nom'])){
-$nom = $_POST['prenom'];
-$prenom = $_POST['nom'];
+require_once __DIR__ . '/../element/header.php';
+require_once __DIR__ . '/../functions/sql.php';
+require_once __DIR__ . '/../Connexion.class.php';
+if (isset($_POST['prenom']) && isset($_POST['nom'])) {
+    $nom = htmlspecialchars($_POST['prenom']);
+    $prenom = htmlspecialchars($_POST['nom']);
 }
 
 
