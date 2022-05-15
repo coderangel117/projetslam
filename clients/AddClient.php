@@ -9,9 +9,9 @@ if (isset($_POST['prenom']) && isset($_POST['nom'])) {
 
 
 
-if(!empty($_POST['nom'])AND !empty($_POST['prenom'])) {
-    $insert = $connexion->prepare("INSERT INTO client (prenom, nom) VALUES(?,?)");
-    $insert->execute(array($prenom, $nom, ));
+if (!empty($_POST['nom']) and !empty($_POST['prenom'])) {
+    $sql = "INSERT INTO projetslam.client (Prenom, Nom) VALUES(?,?)";
+    $insert = Query($sql, [$prenom, $nom]);
     $message = "les données ont bien été enregistrées ! ";
 } else {
     $message = "Tous les champs doivent être complétés !";
