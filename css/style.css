@@ -1,68 +1,75 @@
-.membres
-{
+.membres {
     text-align: right;
 }
-.titre
-{
-    text-align: center;
-    background-color:blue;
-    color: white;
+
+.flex-items__title { /* "Gabriel PERINO" */
+    display: block;
+    flex-basis: 50%;
 }
 
-nav{
+.flex-items__parts { /* different links   */
+    display: block;
+    flex-basis: 15%;
+}
+
+nav {
     width: 100%;
     margin: 0 auto;
-    background-color: white;
+    /*
+        background-color: white;*/
     position: sticky;
 }
 
-.forminscription{
+.forminscription {
     text-align: center;
 }
-footer{
-    background-color:rgb(76, 83, 126);
+
+footer {
+    background-color: rgb(76, 83, 126);
     color: whitesmoke;
     text-align: center;
 }
 
-body{
-    background-color:grey;
+body {
+    background-color: grey;
 }
-*{
+
+* {
     font-family: Avenir, sans-serif;
 }
 
-nav ul{
+nav ul {
     list-style-type: none;
 }
 
-nav ul li{
+nav ul li {
     float: left;
     width: 33%;
     text-align: center;
     position: relative;
 }
 
-nav ul::after{
+nav ul::after {
     content: "";
     display: table;
     clear: both;
 }
 
-nav a{
+nav a {
+    background-color: white;
     display: block;
     text-decoration: none;
     color: black;
     border-bottom: 2px solid transparent;
-    padding: 10px ;
+    padding: 10px;
 }
 
-nav a:hover{
+nav a:hover {
     color: orange;
     border-bottom: 2px solid gold;
 }
 
-.sous{
+.sous {
     display: none;
     box-shadow: 1px 2px #CCC;
     background-color: white;
@@ -70,37 +77,64 @@ nav a:hover{
     width: 100%;
     z-index: 1000;
 }
-nav > ul li:hover .sous{
+
+nav > ul li:hover .sous {
     display: block;
 }
-.sous li{
+
+.sous li {
     float: none;
     width: 100%;
     text-align: left;
 }
-.sous a{
+
+.sous a {
     padding: 10px;
     border-bottom: none;
 }
-.sous a:hover{
+
+.sous a:hover {
     border-bottom: none;
-    background-color: RGB(200,200,200);
+    background-color: RGB(200, 200, 200);
 }
-.deroulant > a::after{
-    content:"▼";
+
+.deroulant > a::after {
+    background-color: white;
+    content: "▼";
     font-size: 12px;
 }
 
-.conteneur{
+.conteneur {
     margin: 50px 20px;
     height: 1500px;
 }
-.collapse, td{
+
+.collapse,
+td {
     border-collapse: collapse;
     border-style: solid;
     border-color: blue;
 }
-td{
-    width:200px;
+
+td {
+    width: 200px;
     border-color: black;
+}
+
+.bad-wolves {
+    height: 150px;
+    width: 150px;
+}
+
+/* flex from header and children */
+.flex-container {
+    font-size: 24px;
+    line-height: 26px;
+    padding: 10px;
+    min-height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
 }

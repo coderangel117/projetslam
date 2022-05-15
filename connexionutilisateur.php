@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'header.php';
+require_once 'element/header.php';
 
 include 'connexion_bdd.php';
 if(isset($_POST['formconnexion'])) {
@@ -59,5 +59,5 @@ if(isset($_POST['formconnexion'])) {
    </body>
 </html>
 <?php
-include 'footer.php';
+require_once 'element/footer.php';
 ?>

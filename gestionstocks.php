@@ -1,7 +1,6 @@
 <?php
-include 'connexion_bdd.php';
-include 'header.php';
-?>
+require_once 'connexion_bdd.php';
+require_once 'element/header.php'; ?>
 <form action="POST">
 
     <!DOCTYPE html>
@@ -43,5 +42,6 @@ include 'header.php';
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     </body>
+<?php    require_once 'element/footer.php';?>
     </html>
 

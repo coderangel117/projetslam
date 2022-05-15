@@ -1,6 +1,6 @@
 <?php
-include 'header.php';
-include 'connexion_bdd.php';
+require_once 'element/header.php';
+require_once 'connexion_bdd.php';
 ?>
 
 <h1>Bases de données MySQL</h1>  
@@ -69,5 +69,5 @@ echo '<table>
 </table>
 </div>
 <?php
-include 'footer.php';
+require_once 'element/footer.php';
 ?>

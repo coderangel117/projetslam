@@ -30,10 +30,10 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `client`;
 CREATE TABLE IF NOT EXISTS `client` (
-  `IDCLIENT` int(2) NOT NULL AUTO_INCREMENT,
-  `PRENOM` char(32) DEFAULT NULL,
-  `NOM` char(32) DEFAULT NULL,
-  PRIMARY KEY (`IDCLIENT`)
+  `IdClient` int(2) NOT NULL AUTO_INCREMENT,
+  `Prenom` char(32) DEFAULT NULL,
+  `Nom` char(32) DEFAULT NULL,
+  PRIMARY KEY (`IdClient`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 
@@ -42,13 +42,13 @@ CREATE TABLE IF NOT EXISTS `client` (
 
 DROP TABLE IF EXISTS `commande`;
 CREATE TABLE IF NOT EXISTS `commande` (
-  `IDCOMMANDE` int(2) NOT NULL AUTO_INCREMENT,
-  `IDFOURNISSEUR` int(2) NOT NULL,
-  `DATECOMMANDE` date DEFAULT NULL,
-  `DATELIVRAISON` date DEFAULT NULL,
-  `PRIXCOMMANDE` int(2) DEFAULT NULL,
-  PRIMARY KEY (`IDCOMMANDE`),
-  KEY `I_FK_COMMANDE_FOURNISSEUR` (`IDFOURNISSEUR`)
+  `IdCommande` int(2) NOT NULL AUTO_INCREMENT,
+  `IdFournisseur` int(2) NOT NULL,
+  `DateCommande` date DEFAULT NULL,
+  `DateLivraison` date DEFAULT NULL,
+  `PrixCommande` int(2) DEFAULT NULL,
+  PRIMARY KEY (`IdCommande`),
+  KEY `I_FK_COMMANDE_FOURNISSEUR` (`IdFournisseur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -59,11 +59,11 @@ CREATE TABLE IF NOT EXISTS `commande` (
 
 DROP TABLE IF EXISTS `commandeclient`;
 CREATE TABLE IF NOT EXISTS `commandeclient` (
-  `IDFACTURE` int(2) NOT NULL AUTO_INCREMENT,
-  `IDCLIENT` int(2) NOT NULL,
-  `DATEFACTURE` date DEFAULT NULL,
+  `IdFacture` int(2) NOT NULL AUTO_INCREMENT,
+  `IdClient` int(2) NOT NULL,
+  `DateFacture` date DEFAULT NULL,
   PRIMARY KEY (`IDFACTURE`),
-  KEY `I_FK_COMMANDECLIENT_CLIENT` (`IDCLIENT`)
+  KEY `I_FK_COMMANDECLIENT_CLIENT` (`IdClient`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -74,12 +74,12 @@ CREATE TABLE IF NOT EXISTS `commandeclient` (
 
 DROP TABLE IF EXISTS `compose`;
 CREATE TABLE IF NOT EXISTS `compose` (
-  `IDCOMMANDE` int(2) NOT NULL AUTO_INCREMENT,
-  `IDPRODUIT` int(2) NOT NULL,
-  `QUANTIT?PRODUIT` int(2) DEFAULT NULL,
-  PRIMARY KEY (`IDCOMMANDE`,`IDPRODUIT`),
-  KEY `I_FK_COMPOSE_COMMANDE` (`IDCOMMANDE`),
-  KEY `I_FK_COMPOSE_PRODUITS` (`IDPRODUIT`)
+  `IdCommande` int(2) NOT NULL AUTO_INCREMENT,
+  `IdProduit` int(2) NOT NULL,
+  `QuantiteProduit` int(2) DEFAULT NULL,
+  PRIMARY KEY (`IdCommande`,`IdProduit`),
+  KEY `I_FK_COMPOSE_COMMANDE` (`IdCommande`),
+  KEY `I_FK_COMPOSE_PRODUITS` (`IdProduit`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -90,12 +90,12 @@ CREATE TABLE IF NOT EXISTS `compose` (
 
 DROP TABLE IF EXISTS `facturation`;
 CREATE TABLE IF NOT EXISTS `facturation` (
-  `IDFACTURE` int(2) NOT NULL AUTO_INCREMENT,
-  `IDPRODUIT` int(2) NOT NULL,
-  `QUANTIT?PRODUITS` int(2) DEFAULT NULL,
-  PRIMARY KEY (`IDFACTURE`,`IDPRODUIT`),
-  KEY `I_FK_FACTURATION_COMMANDECLIENT` (`IDFACTURE`),
-  KEY `I_FK_FACTURATION_PRODUITS` (`IDPRODUIT`)
+  `IdFacture` int(2) NOT NULL AUTO_INCREMENT,
+  `IdProduit` int(2) NOT NULL,
+  `QuantiteProduit` int(2) DEFAULT NULL,
+  PRIMARY KEY (`IdFacture`,`IdProduit`),
+  KEY `I_FK_FACTURATION_COMMANDECLIENT` (`IdFacture`),
+  KEY `I_FK_FACTURATION_PRODUITS` (`IdProduit`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -106,19 +106,19 @@ CREATE TABLE IF NOT EXISTS `facturation` (
 
 DROP TABLE IF EXISTS `fournisseur`;
 CREATE TABLE IF NOT EXISTS `fournisseur` (
-  `IDFOURNISSEUR` int(2) NOT NULL AUTO_INCREMENT,
-  `NOMFOURNISSEUR` char(32) DEFAULT NULL,
-  `ADRESSE` char(32) DEFAULT NULL,
-  `TELEPHONE` char(32) DEFAULT NULL,
-  `MAIL` char(32) DEFAULT NULL,
-  PRIMARY KEY (`IDFOURNISSEUR`)
+  `IdFournisseur` int(2) NOT NULL AUTO_INCREMENT,
+  `NomFournisseur` char(32) DEFAULT NULL,
+  `Adresse` char(32) DEFAULT NULL,
+  `Telephone` char(32) DEFAULT NULL,
+  `Mail` char(32) DEFAULT NULL,
+  PRIMARY KEY (`IdFournisseur`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `fournisseur`
 --
 
-INSERT INTO `fournisseur` (`IDFOURNISSEUR`, `NOMFOURNISSEUR`, `ADRESSE`, `TELEPHONE`, `MAIL`) VALUES
+INSERT INTO `fournisseur` (`IdFournisseur`, `NomFournisseur`, `Adresse`, `Telephone`, 'Mail') VALUES
 (1, 'NOM', 'adresse', '\'+33 06 15 89 23 45', 'mail@mail.fr'),
 (2, 'NOM', 'adresse', '\'+33 06 15 89 23 45', 'mail@mail.fr'),
 (3, 'NOM', 'adresse', '\'+33 06 15 89 23 45', 'mail@mail.fr');
@@ -131,14 +131,14 @@ INSERT INTO `fournisseur` (`IDFOURNISSEUR`, `NOMFOURNISSEUR`, `ADRESSE`, `TELEPH
 
 DROP TABLE IF EXISTS `produits`;
 CREATE TABLE IF NOT EXISTS `produits` (
-  `IDPRODUIT` int(2) NOT NULL AUTO_INCREMENT,
-  `IDRAYON` int(2) NOT NULL,
-  `NOMPRODUIT` char(32) DEFAULT NULL,
-  `PRIXVENTE` int(2) DEFAULT NULL,
-  `PRIXACHAT` int(2) DEFAULT NULL,
-  `QUANTIT?STOCK` int(2) DEFAULT NULL,
-  PRIMARY KEY (`IDPRODUIT`),
-  KEY `I_FK_PRODUITS_RAYON` (`IDRAYON`)
+  `IdProduit` int(2) NOT NULL AUTO_INCREMENT,
+  `IdRayon` int(2) NOT NULL,
+  `NomProduit` char(32) DEFAULT NULL,
+  `PrixVente` int(2) DEFAULT NULL,
+  `PrixAchat` int(2) DEFAULT NULL,
+  `QuantiteStock` int(2) DEFAULT NULL,
+  PRIMARY KEY (`IdProduit`),
+  KEY `I_FK_PRODUITS_RAYON` (`IdRayon`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -149,9 +149,9 @@ CREATE TABLE IF NOT EXISTS `produits` (
 
 DROP TABLE IF EXISTS `rayon`;
 CREATE TABLE IF NOT EXISTS `rayon` (
-  `IDRAYON` int(2) NOT NULL AUTO_INCREMENT,
-  `NOMRAYON` char(32) DEFAULT NULL,
-  PRIMARY KEY (`IDRAYON`)
+  `IdRayon` int(2) NOT NULL AUTO_INCREMENT,
+  `NomRayon` char(32) DEFAULT NULL,
+  PRIMARY KEY (`IdRayon`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -162,33 +162,33 @@ CREATE TABLE IF NOT EXISTS `rayon` (
 -- Contraintes pour la table `commande`
 --
 ALTER TABLE `commande`
-  ADD CONSTRAINT `commande_ibfk_1` FOREIGN KEY (`IDFOURNISSEUR`) REFERENCES `fournisseur` (`IDFOURNISSEUR`);
+  ADD CONSTRAINT `commande_ibfk_1` FOREIGN KEY (`IdFournisseur`) REFERENCES `fournisseur` (`IdFournisseur`);
 
 --
 -- Contraintes pour la table `commandeclient`
 --
 ALTER TABLE `commandeclient`
-  ADD CONSTRAINT `commandeclient_ibfk_1` FOREIGN KEY (`IDCLIENT`) REFERENCES `client` (`IDCLIENT`);
+  ADD CONSTRAINT `commandeclient_ibfk_1` FOREIGN KEY (`IdClient`) REFERENCES `client` (`IdClient`);
 
 --
 -- Contraintes pour la table `compose`
 --
 ALTER TABLE `compose`
-  ADD CONSTRAINT `compose_ibfk_1` FOREIGN KEY (`IDCOMMANDE`) REFERENCES `commande` (`IDCOMMANDE`),
-  ADD CONSTRAINT `compose_ibfk_2` FOREIGN KEY (`IDPRODUIT`) REFERENCES `produits` (`IDPRODUIT`);
+  ADD CONSTRAINT `compose_ibfk_1` FOREIGN KEY (`IdCommande`) REFERENCES `commande` (`IdCommande`),
+  ADD CONSTRAINT `compose_ibfk_2` FOREIGN KEY (`IdProduit`) REFERENCES `produits` (`IdProduit`);
 
 --
 -- Contraintes pour la table `facturation`
 --
 ALTER TABLE `facturation`
-  ADD CONSTRAINT `facturation_ibfk_1` FOREIGN KEY (`IDFACTURE`) REFERENCES `commandeclient` (`IDFACTURE`),
-  ADD CONSTRAINT `facturation_ibfk_2` FOREIGN KEY (`IDPRODUIT`) REFERENCES `produits` (`IDPRODUIT`);
+  ADD CONSTRAINT `facturation_ibfk_1` FOREIGN KEY (`IdFacture`) REFERENCES `commandeclient` (`IdFacture`),
+  ADD CONSTRAINT `facturation_ibfk_2` FOREIGN KEY (`IdProduit`) REFERENCES `produits` (`IdProduit`);
 
 --
 -- Contraintes pour la table `produits`
 --
 ALTER TABLE `produits`
-  ADD CONSTRAINT `produits_ibfk_1` FOREIGN KEY (`IDRAYON`) REFERENCES `rayon` (`IDRAYON`);
+  ADD CONSTRAINT `produits_ibfk_1` FOREIGN KEY (`IdRayon`) REFERENCES `rayon` (`IdRayon`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

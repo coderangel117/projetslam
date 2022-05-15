@@ -1,8 +1,7 @@
 <?php
 session_start();
-include 'connexion_bdd.php';
-include 'header.php';
-
+require_once 'connexion_bdd.php';
+require_once 'element/header.php';
 
 if(isset($_SESSION['id'])) {
    $requser = $bdd->prepare("SELECT * FROM membres WHERE id = ?");
@@ -62,5 +61,4 @@ if(isset($_SESSION['id'])) {
 else {
 //   header("Location: connexion_bdd.php");
 }
-include 'footer.php';
-?>
+require_once 'element/footer.php'; ?>

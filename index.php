@@ -1,10 +1,12 @@
 <?php
-include 'connexion_bdd.php';
-include 'header.php';
-include 'footer.php';
+require_once 'connexion_bdd.php';
+require_once 'element/header.php';
 ?>
 <head>
     <title>accueil A LA BONNE GESTION </title>
 </head>
 <body>
+<a href="accesbdd.php"> test access bdd</a>
 </body>
+<?php
+require_once 'element/footer.php';

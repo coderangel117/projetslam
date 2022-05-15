@@ -1,7 +1,6 @@
 <?php
-include 'connexion_bdd.php';
-include 'header.php';
-
+require_once 'connexion_bdd.php';
+require_once 'element/header.php';
 if(isset($_POST['ancienprenom']) && isset($_POST['anciennom']) && isset($_POST['nouveauprenom']) && isset($_POST['nouveaunom'])){
 $ancienprenom = $_POST['ancienprenom'];
 $anciennom = $_POST['anciennom'];
@@ -52,5 +51,4 @@ if(isset($message)){
 </form>
 
 <?php
-include 'footer.php';
-?>
+require_once 'element/footer.php'; ?>

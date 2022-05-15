@@ -1,7 +1,13 @@
-<?php include 'header.php'; ?>
+<?php
+require_once 'element/header.php'; ?>
 vous avez enregistré votre nom en tant que
-<?php echo($_POST['login']);
-
-
-
-?> <br> BRAVO !! VOTRE COMPTE A BIEN ETE CREE !!
+<?php
+if (isset($_SESSION['login'])) {
+    echo($_SESSION['login']); ?>
+<br> BRAVO !! VOTRE COMPTE A BIEN ETE CREE !!
+<?php }
+else{?>
+    <br> pas encore de session
+    <a href="connexionutilisateur.php"> aller à la page de connexion</a><?php
+}
+?>
