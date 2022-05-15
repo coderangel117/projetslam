@@ -1,6 +1,11 @@
 <?php
-require_once 'connexion_bdd.php';
-require_once 'element/header.php';
+session_start();
+var_dump($_SESSION);
+require_once __DIR__ .'/Connexion.class.php';
+require_once __DIR__ .'/element/header.php';
+require_once __DIR__ .'/functions/sql.php';
+
+
 if (isset($_POST['forminscription'])) {
     $prenom = htmlspecialchars($_POST['prenom']);
     $nom = htmlspecialchars($_POST['nom']);
