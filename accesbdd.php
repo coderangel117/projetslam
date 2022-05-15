@@ -8,6 +8,6 @@ if (isset($_SESSION['login'])) {
 <?php }
 else{?>
     <br> pas encore de session
-    <a href="connexionutilisateur.php"> aller à la page de connexion</a><?php
+    <a href="login.php"> aller à la page de connexion</a><?php
 }
 ?>
