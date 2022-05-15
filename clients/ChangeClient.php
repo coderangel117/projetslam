@@ -1,11 +1,10 @@
 <?php
 require_once __DIR__ .'/../element/header.php';
-require_once __DIR__ .'/../connexion_bdd.php';
-if(isset($_POST['ancienprenom']) && isset($_POST['anciennom']) && isset($_POST['nouveauprenom']) && isset($_POST['nouveaunom'])){
-$ancienprenom = $_POST['ancienprenom'];
-$anciennom = $_POST['anciennom'];
-$nouveauprenom = $_POST['nouveauprenom'];
-$nouveaunom= $_POST['nouveaunom'];
+require_once __DIR__ .'/../Connexion.class.php';
+if(isset($_POST['Prenom']) && isset($_POST['Nom'])){
+$Prenom =  htmlspecialchars($_POST['ancienprenom']);
+$Nom = htmlspecialchars($_POST['anciennom']);
+$IdUser = htmlspecialchars($_GET['Id']);
 }
 
 $updateclient = $connexion->query('UPDATE client SET prenom=$nouveauprenom, nom=$nouveaunom where prenom=$ancienprenom,  prenom=$ancienprenom');
