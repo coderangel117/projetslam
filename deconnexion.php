@@ -1,7 +1,6 @@
 <?php
-include 'connexion_bdd.php';
+require_once 'connexion_bdd.php';
 session_start();
 $_SESSION = array();
 session_destroy();
-header("Location: connexionutilisateur.php");
-?>
+header("Location: connexionutilisateur.php"); ?>
