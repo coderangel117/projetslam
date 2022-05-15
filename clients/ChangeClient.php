@@ -1,16 +1,19 @@
 <?php
 require_once __DIR__ .'/../element/header.php';
 require_once __DIR__ .'/../Connexion.class.php';
-if(isset($_POST['Prenom']) && isset($_POST['Nom'])){
-$Prenom =  htmlspecialchars($_POST['ancienprenom']);
-$Nom = htmlspecialchars($_POST['anciennom']);
-$IdUser = htmlspecialchars($_GET['Id']);
-}
-$parameters = [ $Prenom ,$Nom, $IdUser];
-$sql = 'UPDATE projetslam.client SET prenom= ?, nom= ? where IdClient = ?';
-$updateclient = Query($sql, $parameters);
-var_dump($updateclient);
 
+if (isset($_POST['submit'])){ // Verify that the confirmation button has been clicked
+    if(isset($_POST['Prenom']) && isset($_POST['Nom'])){
+        $Prenom =  htmlspecialchars($_POST['ancienprenom']);
+        $Nom = htmlspecialchars($_POST['anciennom']);
+        $IdUser = htmlspecialchars($_GET['Id']);
+
+        $parameters = [ $Prenom ,$Nom, $IdUser];
+        $sql = 'UPDATE projetslam.client SET prenom= ?, nom= ? where IdClient = ?';
+        $updateclient = Query($sql, $parameters);
+        var_dump($updateclient);
+    }
+}
 ?>
 <head>
     <title>modifier client</title>
@@ -33,7 +36,7 @@ var_dump($updateclient);
         </td>
     </tr>
 </table>
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" name="submit" class="btn btn-primary">Submit</button>
 <?php
 if(isset($message))
 {
