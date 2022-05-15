@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once __DIR__ .'/../functions/sql.php';
+require_once __DIR__ .'/../functions/security.php';
+?>
 <head>
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/confirmation.js"></script>
