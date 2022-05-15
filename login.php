@@ -1,8 +1,8 @@
 <?php
 session_start();
 require_once 'element/header.php';
+require_once 'connexion_bdd.php';
 
-include 'connexion_bdd.php';
 if(isset($_POST['formconnexion'])) {
    $login = htmlspecialchars($_POST['login']);
     if (isset($_POST['formconnexion'])) {
@@ -14,18 +14,17 @@ if(isset($_POST['formconnexion'])) {
             $mdpconnect = $_POST['mdpconnect'];
             $testmdp = password_verify($mdpconnect, $mdp_bdd);
             if ($testmdp === true) {
-                $requser = $connexion->prepare("SELECT * FROM projetslam.utilisateur where  username = ? AND password = ?");
+                $requser = $connexion->prepare("SELECT * FROM projetslam.utilisateur where  Username = ? AND Password = ?");
                 $requser->execute(array($login, $mdp_bdd));
                 $userexist = $requser->rowCount();
                 if ($userexist == 1) {
-                    echo "YES !! ";
                     session_start();
                     $userinfo = $requser->fetch();
                     $_SESSION['username'] = $userinfo['username'];
                     $_SESSION['nom'] = $userinfo['nom'];
                     $_SESSION['prenom'] = $userinfo['prenom'];
                     $_SESSION['connecte'] = 1;
-                    header("Location: accueilstocks.php");
+                    header("Location: menu.php");
                 }
             } else {
                 $message = "Mauvais login ou mot de passe !";
@@ -50,9 +49,10 @@ if(isset($_POST['formconnexion'])) {
             <br /><br />
             <input type="submit" name="formconnexion" value="Se connecter !" />
          </form>
+          <a href="signin.php"> creer un compte</a>
          <?php
          if(isset($message)) {
-            echo '<font color="red">'.$message."</font>";
+            echo '<p style="font-color:red; ">'.$message."</p>";
          }
          ?>
       </div>
