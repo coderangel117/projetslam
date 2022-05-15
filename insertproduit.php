@@ -1,6 +1,6 @@
 <?php
-include 'connexion_bdd.php';
-include 'header.php';
+require_once 'connexion_bdd.php';
+require_once 'element/header.php';
 if(isset($_POST['nomproduit']) && isset($_POST['prixvente']) && isset($_POST['prixachat']) && isset($_POST['quantite'])){
 $nomproduit = $_POST['nomproduit'];
 $prixvente = $_POST['prixvente'];
@@ -42,5 +42,5 @@ if(isset($message)){
 </form>
 
 <?php
-include 'footer.php';
+require_once 'element/footer.php';
 ?>
