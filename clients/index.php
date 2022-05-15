@@ -1,6 +1,7 @@
 <?php
-require_once __DIR__ .'/../element/header.php';
-require_once __DIR__ .'/../connexion_bdd.php';
+require_once __DIR__ . '/../element/header.php';
+require_once __DIR__ . '/../functions/sql.php';
+require_once __DIR__ . '/../Connexion.class.php';
 ?>
 
 <h1>Bases de données MySQL</h1>  
